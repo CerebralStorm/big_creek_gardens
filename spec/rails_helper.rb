@@ -7,6 +7,16 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+
+require 'simplecov'
+SimpleCov.minimum_coverage 95
+SimpleCov.minimum_coverage_by_file 90
+SimpleCov.start do
+  add_filter 'config/routes.rb'
+  add_filter 'config/initializers/'
+  add_filter 'app/uploaders/image_uploader.rb'
+  add_filter 'spec'
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
