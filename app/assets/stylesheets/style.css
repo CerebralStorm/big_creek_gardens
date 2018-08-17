@@ -199,14 +199,6 @@ a:hover {
   padding: 0;
 }
 
-#main-slider .carousel .carousel-content {
-  margin-top: 150px;
-}
-
-#main-slider .carousel .slide-margin{
-  margin-top: 140px;
-}
-
 #main-slider .carousel h2 {
   color: #fff;
   text-transform:uppercase;
@@ -257,6 +249,10 @@ a:hover {
   -moz-transition: opacity ease-in-out 500ms;
   -o-transition: opacity ease-in-out 500ms;
   transition: opacity ease-in-out 500ms;
+}
+
+#main-slider .carousel-content {
+  margin-top: -100px;
 }
 
 #main-slider .carousel .item:first-child {
@@ -355,7 +351,8 @@ a:hover {
 }
 
 #partner {
-  background: url(../images/partners/partner_bg.png) 50% 50% no-repeat;
+  height: 450px;
+  background: url(partner_bg.png) 50% 50% no-repeat;
   background-size: cover;
 }
 
