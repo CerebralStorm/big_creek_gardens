@@ -128,3 +128,16 @@ footer #copyright .nav-inline {
   margin: 4px;
   width: 35px;
 }
+
+label {
+  color:#333;
+}
+
+.product-tile{
+  text-align: center;
+  .product-tile-description {
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
