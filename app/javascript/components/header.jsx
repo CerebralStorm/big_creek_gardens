@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import logo from '../assets/images/logo-alpha.png'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = props => (
   <header>
@@ -47,6 +48,9 @@ const Header = props => (
                 <a href='/users/sign_up' className="nav-link">
                   Sign Up
                 </a>
+              </li>
+              <li className="nav-item">
+                <a href='#' className="nav-link"><FontAwesomeIcon icon='shopping-cart' /> Cart</a>
               </li>
             </ul>
           </div>

@@ -7,9 +7,9 @@ import Index from './index'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBook)
+library.add(faShoppingCart)
 
 class App extends React.Component {
   render() {
