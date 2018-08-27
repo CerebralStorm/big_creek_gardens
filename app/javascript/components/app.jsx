@@ -5,6 +5,12 @@ import Header from './header'
 import Footer from './footer'
 import Index from './index'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faBook)
+
 class App extends React.Component {
   render() {
     return (

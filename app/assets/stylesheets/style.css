@@ -325,7 +325,7 @@ a:hover {
 	padding:50px;
 }
 
-.text-center i {
+.text-center svg {
 	font-size:40px;
 	margin-top:70px;
 	margin-bottom:30px;
@@ -343,7 +343,7 @@ a:hover {
 	color: #1BBD36;
 }
 
-.hi-icon-effect i.fa:hover {
+.hi-icon-effect svg.fa:hover {
 	background:#fff;
 	color: #1BBD36;
 	-webkit-transition: color 300ms, background-color 300ms;

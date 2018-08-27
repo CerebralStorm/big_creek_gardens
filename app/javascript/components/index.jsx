@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Index = props => (
   <div>
@@ -12,8 +13,8 @@ const Index = props => (
             <div className="carousel-caption d-none d-md-block">
               <div className="carousel-content">
                 <h2 className="animation animated-item-1"><img src='logo-alpha.png' className='img-fluid' /></h2>
-                <p className="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</p>
-                <a className="btn-slide animation animated-item-3" href="#">Read More</a>
+                <p className="animation animated-item-2">Hemp products that are out of this world!</p>
+                <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
               </div>
             </div>
           </div>
@@ -22,8 +23,8 @@ const Index = props => (
             <div className="carousel-caption d-none d-md-block">
               <div className="carousel-content">
                 <h2 className="animation animated-item-1"><img src='logo-alpha.png' className='img-fluid' /></h2>
-                <p className="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</p>
-                <a className="btn-slide animation animated-item-3" href="#">Read More</a>
+                <p className="animation animated-item-2">Hemp products that are out of this world!</p>
+                <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
               </div>
             </div>
           </div>
@@ -32,8 +33,8 @@ const Index = props => (
             <div className="carousel-caption d-none d-md-block">
               <div className="carousel-content">
                 <h2 className="animation animated-item-1"><img src='logo-alpha.png' className='img-fluid' /></h2>
-                <p className="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</p>
-                <a className="btn-slide animation animated-item-3" href="#">Read More</a>
+                <p className="animation animated-item-2">Hemp products that are out of this world!</p>
+                <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
               </div>
             </div>
           </div>
@@ -53,32 +54,20 @@ const Index = props => (
       <div className="container">
         <div className="text-center row">
           <div className="col-md-3">
-            <div className="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-              <i className="book" />
-              <h2>Full Responsive</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
+            <h2>Full Responsive</h2>
+            <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
           </div>
           <div className="col-md-3">
-            <div className="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-              <i className="laptop" />
-              <h2>Retina Ready</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
+            <h2>Retina Ready</h2>
+            <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
           </div>
           <div className="col-md-3">
-            <div className="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
-              <i className="heart-o" />
-              <h2>Full Responsive</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
+            <h2>Full Responsive</h2>
+            <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
           </div>
           <div className="col-md-3">
-            <div className="hi-icon-wrap hi-icon-effect wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
-              <i className="cloud" />
-              <h2>Friendly Code</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
+            <h2>Friendly Code</h2>
+            <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
           </div>
         </div>
       </div>
