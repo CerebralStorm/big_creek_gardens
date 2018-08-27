@@ -1,4 +1,4 @@
-import { constants } from '.constants'
+import { constants } from './constants'
 
 const logAndDispatchError = function(dispatch, error, message) {
   if(process.env.NODE_ENV == 'development'){

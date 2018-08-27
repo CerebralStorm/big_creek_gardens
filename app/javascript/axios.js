@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-let instance = axios.create({
-  baseURL: `/accounts/${ENV.account.id}`,
+const instance = axios.create({
   headers: {
     'Authorization': `token=${ENV.session_key}`,
     'X-CSRF-Token': ENV.csrf_token

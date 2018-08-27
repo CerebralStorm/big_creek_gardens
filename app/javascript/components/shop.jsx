@@ -1,8 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { loadProducts } from '../actions/product'
 
 class Shop extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(loadProducts())
+  }
+
   render() {
     return (
       <div className="feature">
@@ -31,4 +37,11 @@ class Shop extends React.Component {
   }
 }
 
-export default Shop;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    products: state.products
+  }
+}
+
+export default connect(mapStateToProps)(Shop)

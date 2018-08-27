@@ -1,6 +1,6 @@
-import { PaychexAccountAPI } from '../api/paychex_account_api'
+import { ProductApi } from '../api/product_api'
 import { logAndDispatchError } from '../utils'
-import { constants } from '../constants'
+import constants from '../constants'
 
 var loadProducts = function (params = {}) {
   return function (dispatch) {

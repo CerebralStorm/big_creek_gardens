@@ -1,4 +1,4 @@
-import axios from '../../shared/axios'
+import axios from 'axios'
 
 class ProductApi {
   static loadProducts(params = {}) {
