@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   get '/contact', to: 'static#index'
   get '/shop', to: 'static#index'
   get '/gallery', to: 'static#index'
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :products
+    end
+  end
 end

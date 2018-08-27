@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadProducts } from '../actions/product'
+import ProductTile from './products/product_tile'
 
 class Shop extends React.Component {
   componentDidMount() {
@@ -12,25 +13,10 @@ class Shop extends React.Component {
   render() {
     return (
       <div className="feature">
-        <div className="container">
-          <div className="text-center row">
-            <div className="col-md-3">
-              <h2>Full Responsive</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
-            <div className="col-md-3">
-              <h2>Retina Ready</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
-            <div className="col-md-3">
-              <h2>Full Responsive</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
-            <div className="col-md-3">
-              <h2>Friendly Code</h2>
-              <p>Quisque eu ante at tortor imperdiet gravida nec sed turpis phasellus.</p>
-            </div>
-          </div>
+        <div className="container row">
+          {this.props.products.map(product => (
+            <ProductTile key={product.id} product={product} />
+          ))}
         </div>
       </div>
     );

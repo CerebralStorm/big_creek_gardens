@@ -5,7 +5,7 @@ const logAndDispatchError = function(dispatch, error, message) {
     console.error(error);
   }
   dispatch({
-    type: flashConstants.DISPLAY_FLASH_MESSAGE,
+    type: constants.DISPLAY_FLASH_MESSAGE,
     messageType: 'error',
     message: message
   })
