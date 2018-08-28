@@ -7,6 +7,7 @@ import store from '../store'
 import App from '../components/app'
 import Index from '../components/index'
 import Shop from '../components/shop'
+import Cart from '../components/cart'
 import Gallery from '../components/gallery'
 import Contact from '../components/contact'
 import NotFound from '../components/not_found'
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <Switch>
             <Route exact path="/" component={Index}/>
             <Route exact path="/shop" component={Shop}/>
+            <Route exact path="/cart" component={Cart}/>
             <Route exact path="/gallery" component={Gallery}/>
             <Route exact path="/contact" component={Contact}/>
             <Route component={NotFound} />

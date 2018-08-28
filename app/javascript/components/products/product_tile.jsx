@@ -1,9 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { updateCart } from '../../actions/cart'
 
 class ProductTile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addToCart = this.addToCart.bind(this)
+  }
+
+  addToCart() {
+    let newCart = this.props.cart
+    if(newCart[this.props.product.id]) {
+      newCart[this.props.product.id]['quantity'] += 1;
+    } else {
+      newCart[this.props.product.id] = {}
+      newCart[this.props.product.id]['quantity'] = 1;
+      newCart[this.props.product.id]['product'] = this.props.product;
+    }
+    console.log(newCart);
+    this.props.dispatch(updateCart(this.props.currentUser, newCart))
+  }
+
   render() {
     return (
       <div className="product-tile col">
@@ -12,12 +32,19 @@ class ProductTile extends React.Component {
           <h6>{this.props.product.name}</h6>
           <p className="product-tile-description">{this.props.product.description}</p>
           <p>{this.props.product.price}</p>
-          <a href='#'><FontAwesomeIcon icon='plus'/>Add to Cart</a>
+          <a href='#' onClick={this.addToCart}><FontAwesomeIcon icon='plus'/>Add to Cart</a>
         </div>
       </div>
     );
   }
 }
 
-export default ProductTile;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    cart: state.cart
+  }
+}
+
+export default connect(mapStateToProps)(ProductTile)
 

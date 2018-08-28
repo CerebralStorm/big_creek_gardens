@@ -50,7 +50,9 @@ const Header = props => (
                 </a>
               </li>
               <li className="nav-item">
-                <a href='#' className="nav-link"><FontAwesomeIcon icon='shopping-cart' /> Cart</a>
+                <Link to={'/cart'} className="nav-link">
+                  <FontAwesomeIcon icon='shopping-cart' /> Cart
+                </Link>
               </li>
             </ul>
           </div>
