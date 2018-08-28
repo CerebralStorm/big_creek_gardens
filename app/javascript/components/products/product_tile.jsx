@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { updateCart } from '../../actions/cart'
+import { updateCart, loadCart } from '../../actions/cart'
 
 class ProductTile extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class ProductTile extends React.Component {
       newCart[this.props.product.id]['quantity'] = 1;
       newCart[this.props.product.id]['product'] = this.props.product;
     }
-    console.log(newCart);
+    console.log('New Cart', newCart);
     this.props.dispatch(updateCart(this.props.currentUser, newCart))
   }
 

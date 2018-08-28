@@ -1,6 +1,6 @@
 import constants from '../constants'
 
-var cartReducer = function (state = new Set([]), action) {
+var cartReducer = function (state = {}, action) {
   switch (action.type) {
     case constants.LOAD_CART:
       console.log(action);

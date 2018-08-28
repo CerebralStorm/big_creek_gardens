@@ -7,6 +7,23 @@ import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.cartCount = this.cartCount.bind(this)
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('header updated', prevProps)
+  }
+
+  cartCount() {
+    let quantity = 0;
+    Object.values(this.props.cart).forEach((item, index) => {
+      quantity += item.quantity
+    })
+    return quantity;
+  }
+
   render() {
     return (
       <header>
@@ -54,7 +71,7 @@ class Header extends React.Component {
                   </li>
                   <li className="nav-item">
                     <Link to={'/cart'} className="nav-link">
-                      <FontAwesomeIcon icon='shopping-cart' /> Cart ({Object.values(this.props.cart).length})
+                      <FontAwesomeIcon icon='shopping-cart' /> Cart ({this.cartCount()})
                     </Link>
                   </li>
                 </ul>

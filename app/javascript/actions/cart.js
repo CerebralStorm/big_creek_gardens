@@ -9,17 +9,27 @@ let cartKey = function (currentUser = null) {
   }
 }
 
+let verifyCart = function (currentUser = null, cart = null) {
+  if(typeof(cart) !== 'object') {
+    Cookies.set(cartKey(currentUser), {});
+    cart = {}
+  }
+  return cart;
+}
+
 let loadCart = function (currentUser = null) {
   return function (dispatch) {
     let cart = Cookies.getJSON(cartKey(currentUser));
-    return dispatch({ type: constants.LOAD_CART, cart: (cart || {}) })
+    cart = verifyCart(currentUser, cart)
+    return dispatch({ type: constants.LOAD_CART, cart: cart })
   }
 }
 
 let updateCart = function (currentUser = null, cart = {}) {
   return function (dispatch) {
+    cart = verifyCart(currentUser, cart)
     Cookies.set(cartKey(currentUser), cart);
-    return dispatch({ type: constants.LOAD_CART, cart: (cart || {}) })
+    return dispatch({ type: constants.LOAD_CART, cart: cart })
   }
 }
 

@@ -16,6 +16,7 @@ var reducer = combineReducers({
 })
 
 var initialState = {
+  cart: {}
 }
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
