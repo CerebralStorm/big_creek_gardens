@@ -12,5 +12,4 @@ class ApplicationController < ActionController::Base
     @js_env
   end
   helper_method :js_env
-
 end

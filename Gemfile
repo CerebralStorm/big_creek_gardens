@@ -11,6 +11,8 @@ gem 'brakeman'
 gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.5.0'
+gem 'dotenv-rails'
+gem 'fog-aws'
 gem 'font-awesome-rails', '~> 4.7.0.4'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.2.1'
@@ -41,8 +43,8 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
