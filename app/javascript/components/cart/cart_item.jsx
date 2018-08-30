@@ -12,6 +12,14 @@ class CartItem extends React.Component {
     this.setQuantity = this.setQuantity.bind(this);
     this.clearItem = this.clearItem.bind(this);
     this.updateAndLoadCart = this.updateAndLoadCart.bind(this);
+    this.textInputRef = React.createRef();
+    this.state = {
+      quantity: props.cartItem.quantity
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.textInputRef.current.value = newProps.cartItem.quantity
   }
 
   changeQuantity(value) {
@@ -26,14 +34,9 @@ class CartItem extends React.Component {
       value = this.props.cartItem.quantity
       event.target.value = this.props.cartItem.quantity
     }
-    console.log(value)
     let newCart = this.props.cart
-    if(value == 0) {
-      this.clearItem()
-    } else {
-      newCart[this.props.product.id]['quantity'] = value;
-      this.updateAndLoadCart(newCart)
-    }
+    newCart[this.props.product.id]['quantity'] = value;
+    this.updateAndLoadCart(newCart)
   }
 
   clearItem(event) {
@@ -64,7 +67,7 @@ class CartItem extends React.Component {
           <div className="col-4 col-sm-4 col-md-4">
             <div className="quantity">
               <input type="button" value="+" className="plus" onClick={this.changeQuantity.bind(this, 1)} />
-              <input type="number" step="1" max="99" min="1" onBlur={this.setQuantity} defaultValue={this.props.cartItem.quantity} value={this.props.cartItem.quantity} title="Qty" className="qty" size="4" />
+              <input type="number" step="1" max="99" min="1" ref={this.textInputRef} onBlur={this.setQuantity} defaultValue={this.state.quantity} title="Qty" className="qty" size="4" />
               <input type="button" value="-" className="minus" onClick={this.changeQuantity.bind(this, -1)} />
             </div>
           </div>

@@ -32,8 +32,8 @@ class Cart extends React.Component {
           </div>
           <div className="card-body">
             {Object.values(this.props.cart).map(cartItem => (
-              <div>
-                <CartItem key={cartItem.product.id} cartItem={cartItem} product={cartItem.product} />
+              <div key={cartItem.product.id}>
+                <CartItem cartItem={cartItem} product={cartItem.product} />
                 <hr />
               </div>
             ))}
