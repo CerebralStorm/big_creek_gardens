@@ -1,21 +1,24 @@
 import React from 'react';
 import {CardElement} from 'react-stripe-elements';
+import SelectUSState from 'react-select-us-states';
 
 class AddressSection extends React.Component {
   render() {
     return (
-      <div className='col-12'>
+      <div>
         <div className="form-group m-2">
-          <label htmlFor="checkoutCity" className="col-sm-2 col-form-label">City</label>
-          <input type="text" id='checkoutCity' className="form-control" placeholder="Enter email" />
+          <label htmlFor="checkoutCity">Address</label>
+          <input type="text" id='checkoutCity' className="form-control" />
         </div>
-        <div className="form-group m-2">
-          <label htmlFor="checkoutState" className="col-sm-2 col-form-label">State</label>
-          <input type="text" id='checkoutState' className="form-control" placeholder="Enter state" />
-        </div>
-        <div className="form-group m-2">
-          <label htmlFor="checkoutZip" className="col-sm-2 col-form-label">Zip</label>
-          <input type="text" id='checkoutZip' className="form-control" placeholder="Enter zip" />
+        <div className='row'>
+          <div className="form-group m-2 col-sm-12 col-md-5">
+            <label htmlFor="checkoutState">State</label>
+            <SelectUSState id="checkoutState" className="form-control" />
+          </div>
+          <div className="form-group m-2 col-sm-12 col-md-5">
+            <label htmlFor="checkoutZip">Zip</label>
+            <input type="text" id='checkoutZip' className="form-control" />
+          </div>
         </div>
       </div>
     );

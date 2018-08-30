@@ -4,9 +4,9 @@ import {CardElement} from 'react-stripe-elements';
 class CardSection extends React.Component {
   render() {
     return (
-      <div className='col-12'>
+      <div>
         <div className="form-group m-2">
-          <label htmlFor="checkoutCreditCard" className="col-sm-2 col-form-label">Credit Card</label>
+          <label htmlFor="checkoutCreditCard">Credit Card</label>
           <CardElement id='checkoutCreditCard' className="form-control" />
         </div>
       </div>

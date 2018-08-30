@@ -1,39 +1,43 @@
 import React from 'react';
-import {injectStripe} from 'react-stripe-elements';
+import {CardElement, injectStripe} from 'react-stripe-elements';
 
 import UserSection from './user_section';
 import AddressSection from './address_section';
 import CardSection from './card_section';
 
 class CheckoutForm extends React.Component {
-  handleSubmit = (ev) => {
-    // We don't want to let default form submission happen here, which would refresh the page.
-    ev.preventDefault();
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
 
-    // Within the context of `Elements`, this call to createToken knows which Element to
-    // tokenize, since there's only one in this group.
-    this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
-      console.log('Received Stripe token:', token);
+  async submit(ev) {
+    console.log('here')
+    let {token} = await this.props.stripe.createToken({name: "Name"});
+    let response = await fetch("/charge", {
+      method: "POST",
+      headers: {"Content-Type": "text/plain"},
+      body: token.id
     });
 
-    // However, this line of code will do the same thing:
-    //
-    // this.props.stripe.createToken({type: 'card', name: 'Jenny Rosen'});
-
-    // You can also use createSource to create Sources. See our Sources
-    // documentation for more: https://stripe.com/docs/stripe-js/reference#stripe-create-source
-    //
-    // this.props.stripe.createSource({type: 'card', name: 'Jenny Rosen'});
-  };
+    if (response.ok) console.log("Purchase Complete!")
+  }
 
   render() {
     return (
-      <div className='container card'>
-        <form onSubmit={this.handleSubmit} className='form-inline'>
-          <UserSection />
-          <AddressSection />
-          <CardSection />
-          <button className='btn btn-success'>Confirm order</button>
+      <div className='container card checkout-container'>
+        <form onSubmit={this.handleSubmit} className='m-4'>
+          <div className='row'>
+            <div className='col-sm-12 col-md-8'>
+              <UserSection />
+              <AddressSection />
+              <CardSection />
+              <button onClick={this.handleSubmit} className='btn btn-success pull-right'>Confirm order</button>
+            </div>
+            <div className='col-sm-12 col-md-4'>
+              Cart
+            </div>
+          </div>
         </form>
       </div>
     );
