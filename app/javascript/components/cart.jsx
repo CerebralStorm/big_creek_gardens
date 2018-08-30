@@ -10,6 +10,10 @@ import CheckoutForm from './cart/checkout_form'
 import { Elements, StripeProvider } from 'react-stripe-elements';
 
 class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.dispatch(loadCart())
   }
@@ -26,29 +30,29 @@ class Cart extends React.Component {
             </Link>
             <div className="clearfix"></div>
           </div>
-          <div class="card-body">
+          <div className="card-body">
             {Object.values(this.props.cart).map(cartItem => (
               <div>
-                <CartItem key={cartItem.product.id} cartItem={cartItem} />
+                <CartItem key={cartItem.product.id} cartItem={cartItem} product={cartItem.product} />
                 <hr />
               </div>
             ))}
           </div>
         </div>
-        <div class="card-footer">
-          <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-            <div class="row">
-              <div class="col-6">
-                <input type="text" class="form-control" placeholder="coupon code" />
+        <div className="card-footer">
+          <div className="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+            <div className="row">
+              <div className="col-6">
+                <input type="text" className="form-control" placeholder="coupon code" />
               </div>
-              <div class="col-6">
-                <input type="submit" class="btn btn-default" value="Use coupon" />
+              <div className="col-6">
+                <input type="submit" className="btn btn-default" value="Use coupon" />
               </div>
             </div>
           </div>
-          <div class="pull-right" style={{margin: '10px'}}>
-            <a href="" class="btn btn-success pull-right">Checkout</a>
-            <div class="pull-right total-price" style={{margin: '5px'}}>
+          <div className="pull-right" style={{margin: '10px'}}>
+            <a href="" className="btn btn-success pull-right">Checkout</a>
+            <div className="pull-right total-price" style={{margin: '5px'}}>
               <strong>Total price: <b>$50.00</b></strong>
             </div>
           </div>

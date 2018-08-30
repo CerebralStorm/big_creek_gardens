@@ -3,11 +3,48 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { updateCart } from '../../actions/cart'
+import { updateCart, loadCart } from '../../actions/cart'
 
 class CartItem extends React.Component {
   constructor(props) {
     super(props);
+    this.changeQuantity = this.changeQuantity.bind(this);
+    this.setQuantity = this.setQuantity.bind(this);
+    this.clearItem = this.clearItem.bind(this);
+    this.updateAndLoadCart = this.updateAndLoadCart.bind(this);
+  }
+
+  changeQuantity(value) {
+    let newCart = this.props.cart
+    newCart[this.props.product.id]['quantity'] += value;
+    this.updateAndLoadCart(newCart)
+  }
+
+  setQuantity(event) {
+    let value = parseInt(event.target.value)
+    if(!event.target.value) {
+      value = this.props.cartItem.quantity
+      event.target.value = this.props.cartItem.quantity
+    }
+    console.log(value)
+    let newCart = this.props.cart
+    if(value == 0) {
+      this.clearItem()
+    } else {
+      newCart[this.props.product.id]['quantity'] = value;
+      this.updateAndLoadCart(newCart)
+    }
+  }
+
+  clearItem(event) {
+    let newCart = this.props.cart
+    delete newCart[this.props.product.id]
+    this.updateAndLoadCart(newCart)
+  }
+
+  updateAndLoadCart(cart) {
+    updateCart(this.props.currentUser, cart)
+    this.props.dispatch(loadCart(this.props.currentUser))
   }
 
   render() {
@@ -17,22 +54,22 @@ class CartItem extends React.Component {
           <img className="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80" />
         </div>
         <div className="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-          <h4 className="product-name"><strong>{this.props.cartItem.product.name}</strong></h4>
-          <h4><small>{this.props.cartItem.product.description}</small></h4>
+          <h4 className="product-name"><strong>{this.props.product.name}</strong></h4>
+          <h4><small>{this.props.product.description}</small></h4>
         </div>
         <div className="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
           <div className="col-3 col-sm-3 col-md-6 text-md-right line-item-price">
-            <h6><strong>{this.props.cartItem.product.price} <span className="text-muted">x</span></strong></h6>
+            <h6><strong>{this.props.product.price} <span className="text-muted">x</span></strong></h6>
           </div>
           <div className="col-4 col-sm-4 col-md-4">
             <div className="quantity">
-              <input type="button" value="+" className="plus" />
-              <input type="number" step="1" max="99" min="1" value="1" title="Qty" className="qty" size="4" />
-              <input type="button" value="-" className="minus" />
+              <input type="button" value="+" className="plus" onClick={this.changeQuantity.bind(this, 1)} />
+              <input type="number" step="1" max="99" min="1" onBlur={this.setQuantity} defaultValue={this.props.cartItem.quantity} value={this.props.cartItem.quantity} title="Qty" className="qty" size="4" />
+              <input type="button" value="-" className="minus" onClick={this.changeQuantity.bind(this, -1)} />
             </div>
           </div>
           <div className="col-2 col-sm-2 col-md-2 text-right">
-            <button type="button" className="btn btn-outline-danger btn-xs">
+            <button type="button" onClick={this.clearItem} className="btn btn-outline-danger btn-xs">
               <i className="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>

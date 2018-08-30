@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import logo from '../assets/images/logo-alpha.png'
+import { loadCart } from '../actions/cart'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,8 +13,8 @@ class Header extends React.Component {
     this.cartCount = this.cartCount.bind(this)
   }
 
-  componentDidUpdate(prevProps) {
-    console.log('header updated', prevProps)
+  componentDidMount() {
+    this.props.dispatch(loadCart())
   }
 
   cartCount() {

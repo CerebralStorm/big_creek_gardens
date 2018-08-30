@@ -3,10 +3,8 @@ import constants from '../constants'
 var cartReducer = function (state = {}, action) {
   switch (action.type) {
     case constants.LOAD_CART:
-      console.log(action);
-      return action.cart;
-    case constants.UPDATE_CART:
-      console.log(action);
+      console.log(state)
+      console.log(action.cart)
       return action.cart;
     default:
       return state;

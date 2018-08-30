@@ -20,8 +20,8 @@ class ProductTile extends React.Component {
       newCart[this.props.product.id]['quantity'] = 1;
       newCart[this.props.product.id]['product'] = this.props.product;
     }
-    console.log('New Cart', newCart);
-    this.props.dispatch(updateCart(this.props.currentUser, newCart))
+    updateCart(this.props.currentUser, newCart)
+    this.props.dispatch(loadCart(this.props.currentUser))
   }
 
   render() {

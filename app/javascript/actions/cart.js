@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
 import constants from '../constants'
+ENV.Cookies = Cookies
 
 let cartKey = function (currentUser = null) {
   if(!!currentUser) {
@@ -26,11 +27,8 @@ let loadCart = function (currentUser = null) {
 }
 
 let updateCart = function (currentUser = null, cart = {}) {
-  return function (dispatch) {
-    cart = verifyCart(currentUser, cart)
-    Cookies.set(cartKey(currentUser), cart);
-    return dispatch({ type: constants.LOAD_CART, cart: cart })
-  }
+  cart = verifyCart(currentUser, cart)
+  Cookies.set(cartKey(currentUser), cart);
 }
 
 export { loadCart, updateCart };
