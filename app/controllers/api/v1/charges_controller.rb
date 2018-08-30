@@ -27,8 +27,6 @@ module Api
             :amount,
             :currency,
             :description
-          ],
-          :order [
           ])
       end
     end
