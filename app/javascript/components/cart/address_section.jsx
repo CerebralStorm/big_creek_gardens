@@ -8,16 +8,20 @@ class AddressSection extends React.Component {
       <div>
         <div className="form-group m-2">
           <label htmlFor="checkoutCity">Address</label>
-          <input type="text" id='checkoutCity' className="form-control" />
+          <input name='address' type="text" id='checkoutCity' className="form-control" onChange={this.props.handleChange} />
         </div>
         <div className='row'>
-          <div className="form-group m-2 col-sm-12 col-md-5">
-            <label htmlFor="checkoutState">State</label>
-            <SelectUSState id="checkoutState" className="form-control" />
+          <div className="form-group col-sm-12 ml-2 col-md-3">
+            <label htmlFor="checkoutCity">City</label>
+            <input name='city' type="text" id='checkoutCity' className="form-control" onChange={this.props.handleChange} />
           </div>
-          <div className="form-group m-2 col-sm-12 col-md-5">
+          <div className="form-group col-sm-12 col-md-3">
+            <label htmlFor="checkoutState">State</label>
+            <SelectUSState name='state' id="checkoutState" className="form-control" onChange={this.props.handleStateChange} />
+          </div>
+          <div className="form-group col-sm-12 mr-2 col-md-3">
             <label htmlFor="checkoutZip">Zip</label>
-            <input type="text" id='checkoutZip' className="form-control" />
+            <input name='zip' type="text" id='checkoutZip' className="form-control" onChange={this.props.handleChange} />
           </div>
         </div>
       </div>
