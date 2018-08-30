@@ -17,7 +17,7 @@ class Checkout extends React.Component {
     return (
       <StripeProvider apiKey={ENV.stripe_key}>
         <Elements>
-          <CheckoutForm />
+          <CheckoutForm cart={this.props.cart} />
         </Elements>
       </StripeProvider>
     );

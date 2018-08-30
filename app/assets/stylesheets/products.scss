@@ -24,3 +24,34 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.checkout-item-small {
+  padding: 0px;
+}
+
+.checkout-title {
+  color: white;
+}
+
+.checkout-cart-header {
+  background-color: #343a40 !important
+}
+
+.checkout-name {
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden
+}
+
+small.checkout-description {
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden
+}
+.checkout-total {
+  border-top: 2px solid black;
+}

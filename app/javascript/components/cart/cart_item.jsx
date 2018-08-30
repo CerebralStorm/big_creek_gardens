@@ -57,11 +57,11 @@ class CartItem extends React.Component {
     return (
       <div className="row">
         <div className="col-12 col-sm-12 col-md-2 text-center">
-          <img className="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80" />
+          <img className="img-responsive" src={this.props.product.image_url} alt="prewiew" height="80" />
         </div>
         <div className="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-          <h4 className="product-name"><strong>{this.props.product.name}</strong></h4>
-          <h4><small>{this.props.product.description}</small></h4>
+          <h6 className="product-name"><strong>{this.props.product.name}</strong></h6>
+          <h6><small>{this.props.product.description}</small></h6>
         </div>
         <div className="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
           <div className="col-3 col-sm-3 col-md-6 text-md-right line-item-price">
