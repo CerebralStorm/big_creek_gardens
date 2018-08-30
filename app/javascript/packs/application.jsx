@@ -10,6 +10,7 @@ import Shop from '../components/shop'
 import Cart from '../components/cart'
 import Gallery from '../components/gallery'
 import Contact from '../components/contact'
+import Checkout from '../components/cart/checkout'
 import NotFound from '../components/not_found'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <Route exact path="/cart" component={Cart}/>
             <Route exact path="/gallery" component={Gallery}/>
             <Route exact path="/contact" component={Contact}/>
+            <Route exact path="/checkout" component={Checkout}/>
             <Route component={NotFound} />
           </Switch>
         </App>

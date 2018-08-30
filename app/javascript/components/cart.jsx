@@ -6,8 +6,6 @@ import { loadCart } from '../actions/cart'
 import { Link } from 'react-router-dom'
 
 import CartItem from './cart/cart_item'
-import CheckoutForm from './cart/checkout_form'
-import { Elements, StripeProvider } from 'react-stripe-elements';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -24,7 +22,6 @@ class Cart extends React.Component {
     Object.values(this.props.cart).forEach((item, index) => {
       total += (item.quantity * item.product.price)
     })
-    console.log(total)
     return total.toFixed(2)
   }
 
@@ -61,7 +58,7 @@ class Cart extends React.Component {
             </div>
           </div>
           <div className="pull-right" style={{margin: '10px'}}>
-            <a href="" className="btn btn-success pull-right">Checkout</a>
+            <Link to='/checkout' className="btn btn-success pull-right">Checkout</Link>
             <div className="pull-right total-price" style={{margin: '5px'}}>
               <strong>Total price: <b>${this.totalPrice()}</b></strong>
             </div>
