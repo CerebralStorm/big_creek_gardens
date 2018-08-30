@@ -25,11 +25,14 @@ class CartItem extends React.Component {
   changeQuantity(value) {
     let newCart = this.props.cart
     newCart[this.props.product.id]['quantity'] += value;
+    if(newCart[this.props.product.id]['quantity'] < 0) {
+      newCart[this.props.product.id]['quantity'] = 0
+    }
     this.updateAndLoadCart(newCart)
   }
 
   setQuantity(event) {
-    let value = parseInt(event.target.value)
+    let value = Math.abs(parseInt(event.target.value))
     if(!event.target.value) {
       value = this.props.cartItem.quantity
       event.target.value = this.props.cartItem.quantity

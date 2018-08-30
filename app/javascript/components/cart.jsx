@@ -12,10 +12,20 @@ import { Elements, StripeProvider } from 'react-stripe-elements';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
+    this.totalPrice = this.totalPrice.bind(this)
   }
 
   componentDidMount() {
     this.props.dispatch(loadCart())
+  }
+
+  totalPrice() {
+    let total = 0;
+    Object.values(this.props.cart).forEach((item, index) => {
+      total += (item.quantity * item.product.price)
+    })
+    console.log(total)
+    return total.toFixed(2)
   }
 
   render() {
@@ -23,8 +33,8 @@ class Cart extends React.Component {
       <div className="container cart-container">
         <div className="card shopping-cart">
           <div className="card-header bg-dark text-light">
-            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-            Shipping cart
+            <i className="fa fa-shopping-cart mr-md-3" aria-hidden="true"></i>
+            <strong>Shopping Cart</strong>
             <Link to={'/shop'} className="btn btn-outline-success btn-sm pull-right">
               Continue Shopping
             </Link>
@@ -53,7 +63,7 @@ class Cart extends React.Component {
           <div className="pull-right" style={{margin: '10px'}}>
             <a href="" className="btn btn-success pull-right">Checkout</a>
             <div className="pull-right total-price" style={{margin: '5px'}}>
-              <strong>Total price: <b>$50.00</b></strong>
+              <strong>Total price: <b>${this.totalPrice()}</b></strong>
             </div>
           </div>
           <div className='clearfix'></div>
