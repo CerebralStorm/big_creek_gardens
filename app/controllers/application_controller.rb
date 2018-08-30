@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :redirect_to_https
   before_action :authenticate_user!
-
-  def redirect_to_https
-    redirect_to :protocol => "https://" if Rails.env.production?
-  end
 
   def js_env(opts = {})
     @js_env ||= {}
