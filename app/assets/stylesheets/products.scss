@@ -1,3 +1,21 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.product-tile {
+  height: 360px;
+}
+
+.product-title {
+  height: 30px;
+}
+
+.product-description {
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  height: 20px;
+}
+
+.product-cart-add {
+  height: 20px;
+}

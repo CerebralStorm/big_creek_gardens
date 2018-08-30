@@ -12,8 +12,8 @@ class Shop extends React.Component {
 
   render() {
     return (
-      <div className="feature">
-        <div className="container row">
+      <div className="container mt-3 mb-3">
+        <div className='row'>
           {this.props.products.map(product => (
             <ProductTile key={product.id} product={product} />
           ))}
