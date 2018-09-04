@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get '/gallery', to: 'static#index'
   get '/cart', to: 'static#index'
   get '/checkout', to: 'static#index'
-  get '/confirmation', to: 'static#index'
+  get '/confirmation/:id', to: 'static#index'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :products
       resources :charges
+      resources :orders
     end
   end
 end

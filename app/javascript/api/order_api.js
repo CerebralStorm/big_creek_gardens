@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 class OrderApi {
-  static createOrder(params = {}) {
-    return axios.get(`/api/v1/order`, {params: params})
+  static loadOrder(orderId, params = {}) {
+    return axios.get(`/api/v1/orders/${orderId}`, {params: params})
   }
 }
 

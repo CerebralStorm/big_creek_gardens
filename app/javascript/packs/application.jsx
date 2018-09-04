@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <Route exact path="/gallery" component={Gallery}/>
             <Route exact path="/contact" component={Contact}/>
             <Route exact path="/checkout" component={Checkout}/>
-            <Route exact path="/confirmation" component={CheckoutConfirmation}/>
+            <Route exact path="/confirmation/:orderId" component={CheckoutConfirmation}/>
             <Route component={NotFound} />
           </Switch>
         </App>
