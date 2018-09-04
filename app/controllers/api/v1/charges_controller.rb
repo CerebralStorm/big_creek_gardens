@@ -4,7 +4,7 @@ module Api
       skip_before_action :authenticate_user!
 
       def create
-        response = StripeChargesServices.new(charges_params).call
+        response = StripeChargesServices.new(charges_params, current_user).call
         render json: { response: response }, status: :ok
       rescue Stripe::CardError => error
         render json: { error: error.message }, status: :unprocessable_entity

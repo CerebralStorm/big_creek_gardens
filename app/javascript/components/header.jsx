@@ -19,9 +19,11 @@ class Header extends React.Component {
 
   cartCount() {
     let quantity = 0;
-    Object.values(this.props.cart).forEach((item, index) => {
-      quantity += item.quantity
-    })
+    if(this.props.cart && Object.keys(this.props.cart).length > 0){
+      Object.values(this.props.cart).forEach((item, index) => {
+        quantity += item.quantity
+      })
+    }
     return quantity;
   }
 

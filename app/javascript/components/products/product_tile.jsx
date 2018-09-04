@@ -12,7 +12,7 @@ class ProductTile extends React.Component {
   }
 
   addToCart() {
-    let newCart = this.props.cart
+    let newCart = this.props.cart || {}
     if(newCart[this.props.product.id]) {
       newCart[this.props.product.id]['quantity'] += 1;
     } else {

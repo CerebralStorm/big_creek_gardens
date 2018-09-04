@@ -1,6 +1,7 @@
 import React from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-
+import { updateCart, loadCart } from '../../actions/cart'
+import { Redirect } from 'react-router';
 import UserSection from './user_section';
 import AddressSection from './address_section';
 import CardSection from './card_section';
@@ -19,7 +20,8 @@ class CheckoutForm extends React.Component {
       address: '',
       city: '',
       state: '',
-      zip: ''
+      zip: '',
+      redirectToConfirmation: false
     }
   }
 
@@ -52,10 +54,15 @@ class CheckoutForm extends React.Component {
       address_state: this.state.state,
       address_zip: this.state.zip,
       address_country: 'US',
-      charge: {
-
-      }
     }
+
+    let orderlineItems = Object.values(this.props.cart).map(cartItem => {
+      return ({
+        product_id: cartItem.product.id,
+        quantity: cartItem.quantity
+      });
+    })
+
     let {token} = await this.props.stripe.createToken(user);
     let response = await fetch("/api/v1/charges", {
       method: "POST",
@@ -66,14 +73,22 @@ class CheckoutForm extends React.Component {
       },
       body: JSON.stringify({
         stripe_token: token.id,
-        user: user
+        user: user,
+        order_line_items_attributes: orderlineItems
       })
     });
 
-    if (response.ok) console.log("Purchase Complete!")
+    if (response.ok) {
+      updateCart({})
+      this.setState({redirectToConfirmation: true})
+    }
   }
 
   render() {
+    if (this.state.redirectToConfirmation) {
+      return <Redirect to='/confirmation' />;
+    }
+
     return (
       <div className='container checkout-container'>
         <h1 className='text-center'>Checkout</h1>
