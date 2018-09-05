@@ -52,11 +52,11 @@ class Header extends React.Component {
                       Shop
                     </Link>
                   </li>
-                  <li className="nav-item">
+{/*                  <li className="nav-item">
                     <Link to={'/gallery'} className="nav-link">
                       Gallery
                     </Link>
-                  </li>
+                  </li>*/}
                   <li className="nav-item">
                     <Link to={'/contact'} className="nav-link">
                       Contact
