@@ -1,6 +1,7 @@
 import React from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import { updateCart, loadCart } from '../../actions/cart'
+import ChargeApi from '../../api/charge_api'
 import { Redirect } from 'react-router';
 import UserSection from './user_section';
 import AddressSection from './address_section';
@@ -21,7 +22,8 @@ class CheckoutForm extends React.Component {
       city: '',
       state: '',
       zip: '',
-      redirectToConfirmation: false
+      redirectToConfirmation: false,
+      orderId: ''
     }
   }
 
@@ -64,29 +66,21 @@ class CheckoutForm extends React.Component {
     })
 
     let {token} = await this.props.stripe.createToken(user);
-    let response = await fetch("/api/v1/charges", {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': ENV.csrf_token
-      },
-      body: JSON.stringify({
-        stripe_token: token.id,
-        user: user,
-        order_line_items_attributes: orderlineItems
-      })
-    });
-
-    if (response.ok) {
+    ChargeApi.createCharge({
+      stripe_token: token.id,
+      user: user,
+      order_line_items_attributes: orderlineItems,
+      authenticity_token: ENV.csrf_token
+    }).then((response) => {
       updateCart({})
-      this.setState({redirectToConfirmation: true})
-    }
+      console.log(response.data)
+      this.setState({orderId: response.data.response.order_id, redirectToConfirmation: true})
+    })
   }
 
   render() {
     if (this.state.redirectToConfirmation) {
-      return <Redirect to='/confirmation' />;
+      return <Redirect to={`/confirmation/${this.state.orderId}`} />;
     }
 
     return (

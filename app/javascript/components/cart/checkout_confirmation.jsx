@@ -13,7 +13,6 @@ class CheckoutConfirmation extends React.Component {
 
   componentWillMount() {
     OrderApi.loadOrder(this.props.match.params.orderId).then((response) => {
-      console.log(response.data)
       this.setState({
         order: response.data.order,
         user: response.data.order.user,
@@ -44,8 +43,8 @@ class CheckoutConfirmation extends React.Component {
                       {this.state.user.name}<br />
                       {this.state.user.email}<br />
                       {this.state.user.phone}<br />
-                      Address<br />
-                      ZIP, City, Country
+                      {this.state.user.address}<br />
+                      {this.state.user.city}, {this.state.user.state}, {this.state.user.zip}
                     </address>
                   </div>
                 </div>
@@ -63,7 +62,7 @@ class CheckoutConfirmation extends React.Component {
                 </thead>
                 <tbody>
                   {this.state.orderLineItems.map((lineItem) => (
-                    <tr>
+                    <tr key={lineItem.id}>
                       <td scope="row">{lineItem.name}</td>
                       <td>{lineItem.quantity}</td>
                       <td>{lineItem.price}</td>
@@ -72,6 +71,8 @@ class CheckoutConfirmation extends React.Component {
                   ))}
                 </tbody>
               </table>
+              <hr />
+              <strong className='pull-right'>Total: ${this.state.order.total}</strong>
             </div>
           </div>
         </div>

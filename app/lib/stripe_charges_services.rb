@@ -8,6 +8,7 @@ class StripeChargesServices
     @stripe_token = params[:stripe_token]
     @user ||= User.where(email: stripe_email).first_or_initialize
     @user.save(validate: false) unless @user.persisted?
+    save_user_info
     if params[:order_id].present?
       @order = Order.find(params[:order_id])
     else
@@ -23,6 +24,16 @@ class StripeChargesServices
   private
 
   attr_accessor :user, :stripe_email, :stripe_token, :order, :params
+
+  def save_user_info
+    user.name ||= params[:user][:name]
+    user.phone ||= params[:user][:phone]
+    user.address ||= params[:user][:address_line1]
+    user.city ||= params[:user][:address_city]
+    user.state ||= params[:user][:address_state]
+    user.zip ||= params[:user][:address_zip]
+    user.save if user.changed?
+  end
 
   def create_order
     Order.create(
@@ -57,7 +68,8 @@ class StripeChargesServices
       customer: customer.id,
       amount: order.total_in_cents,
       description: customer.email,
-      currency: DEFAULT_CURRENCY
+      currency: DEFAULT_CURRENCY,
+      metadata: {'order_id' => order.id}
     )
     create_charge_record(customer)
   end
