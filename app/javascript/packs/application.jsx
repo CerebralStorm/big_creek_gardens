@@ -13,6 +13,7 @@ import Contact from '../components/contact'
 import Checkout from '../components/cart/checkout'
 import CheckoutConfirmation from '../components/cart/checkout_confirmation'
 import NotFound from '../components/not_found'
+import Unauthorized from '../components/unauthorized'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <Route exact path="/contact" component={Contact}/>
             <Route exact path="/checkout" component={Checkout}/>
             <Route exact path="/confirmation/:orderId" component={CheckoutConfirmation}/>
+            <Route exact path="/unauthorized" component={Unauthorized}/>
             <Route component={NotFound} />
           </Switch>
         </App>

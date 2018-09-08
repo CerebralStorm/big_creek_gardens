@@ -3,6 +3,10 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to '/unauthorized'
+  end
+
   def js_env(opts = {})
     @js_env ||= {}
     @js_env[:params] = params.except('action', 'controller')

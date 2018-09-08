@@ -1234,3 +1234,7 @@ a.scrollup:hover{
 	background-color:#ddd;
 	color:#1BBD36;
 }
+
+.error-template {
+  color: black;
+}
