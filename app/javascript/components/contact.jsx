@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import MessageApi from '../api/message_api'
+import { connect } from 'react-redux'
+import { showFlashMessage } from '../actions/flash'
 
 class Contact extends React.Component {
   constructor(props) {
@@ -27,6 +29,13 @@ class Contact extends React.Component {
       name: this.state.name,
       email: this.state.email,
       message: this.state.message
+    }).then((response) => {
+      this.props.dispatch(showFlashMessage('Thank you for your message', 'success'))
+      this.setState({
+        name: '',
+        email: '',
+        message: ''
+      })
     })
   }
 
@@ -67,4 +76,11 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    flash: state.flash
+  }
+}
+
+export default connect(mapStateToProps)(Contact)

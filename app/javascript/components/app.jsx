@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Header from './header'
 import Footer from './footer'
 import Index from './index'
+import FlashMessage from './flash_message'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <FlashMessage />
         {this.props.children}
         <Footer />
       </div>

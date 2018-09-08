@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateCart, loadCart } from '../../actions/cart'
+import { showFlashMessage } from '../../actions/flash'
 
 class ProductTile extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class ProductTile extends React.Component {
     }
     updateCart(this.props.currentUser, newCart)
     this.props.dispatch(loadCart(this.props.currentUser))
+    this.props.dispatch(showFlashMessage(`${this.props.product.name} was added to your cart`, 'success'))
   }
 
   render() {
