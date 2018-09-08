@@ -6,6 +6,7 @@ import { Redirect } from 'react-router';
 import UserSection from './user_section';
 import AddressSection from './address_section';
 import CardSection from './card_section';
+import { connect } from 'react-redux'
 
 class CheckoutForm extends React.Component {
   constructor(props) {
@@ -72,8 +73,8 @@ class CheckoutForm extends React.Component {
       order_line_items_attributes: orderlineItems,
       authenticity_token: ENV.csrf_token
     }).then((response) => {
-      updateCart({})
-      console.log(response.data)
+      updateCart(this.props.currentUser, {})
+      this.props.dispatch(loadCart(this.props.currentUser))
       this.setState({orderId: response.data.response.order_id, redirectToConfirmation: true})
     })
   }
@@ -120,5 +121,11 @@ class CheckoutForm extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    cart: state.cart
+  }
+}
 
-export default injectStripe(CheckoutForm);
+export default connect(mapStateToProps)(injectStripe(CheckoutForm))
