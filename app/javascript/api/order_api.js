@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../custom_axios';
 
 class OrderApi {
   static loadOrder(orderId, params = {}) {

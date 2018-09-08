@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :products
       resources :charges
       resources :orders
+      resources :messages
     end
   end
 end

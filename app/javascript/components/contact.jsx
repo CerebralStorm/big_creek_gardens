@@ -1,8 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import MessageApi from '../api/message_api'
 
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.submitMessage = this.submitMessage.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      name: '',
+      email: '',
+      message: ''
+    }
+  }
+
+  handleChange(event) {
+    let state = this.state
+    state[event.target.name] = event.target.value
+    this.setState(state)
+  }
+
+  submitMessage(event) {
+    event.preventDefault()
+    MessageApi.createMessage({
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.message
+    })
+  }
+
   render() {
     return (
       <div className="container mt-3 mb-3">
@@ -12,18 +39,18 @@ class Contact extends React.Component {
           <div className="col-md-8 col-md-offset-2">
             <form className="form-horizontal">
               <div className="form-group">
-                <label htmlFor="exampleInputName2">Name</label>
-                <input type="text" className="form-control" id="exampleInputName2" placeholder="Jane Doe" />
+                <label htmlFor="contact-name">Name</label>
+                <input name='name' type="text" className="form-control" id="contact-name" onChange={this.handleChange} value={this.state.name} />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail2">Email</label>
-                <input type="email" className="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" />
+                <label htmlFor="contact-email">Email</label>
+                <input name='email' type="email" className="form-control" id="contact-email" onChange={this.handleChange} value={this.state.email} />
               </div>
               <div className="form-group ">
-                <label htmlFor="exampleInputText">Your Message</label>
-               <textarea  className="form-control" placeholder="Description"></textarea>
+                <label htmlFor="contact-text">Your Message</label>
+               <textarea name='message' className="form-control" id="contact-text" onChange={this.handleChange} value={this.state.message}></textarea>
               </div>
-              <button type="submit" className="btn btn-default">Send Message</button>
+              <button type="submit" className="btn btn-default" onClick={this.submitMessage} >Send Message</button>
             </form>
 
             <hr />

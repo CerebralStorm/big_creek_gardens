@@ -70,8 +70,7 @@ class CheckoutForm extends React.Component {
     ChargeApi.createCharge({
       stripe_token: token.id,
       user: user,
-      order_line_items_attributes: orderlineItems,
-      authenticity_token: ENV.csrf_token
+      order_line_items_attributes: orderlineItems
     }).then((response) => {
       updateCart(this.props.currentUser, {})
       this.props.dispatch(loadCart(this.props.currentUser))
