@@ -64,9 +64,9 @@ class Header extends React.Component {
                   </li>
                   {this.props.currentUser &&
                     <li className="nav-item">
-                      <a href='/account' method='DELETE' className="nav-link">
+                      <Link to={'/account'} className="nav-link">
                         My Account
-                      </a>
+                      </Link>
                     </li>
                   }
                   {this.props.currentUser &&

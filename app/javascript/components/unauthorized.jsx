@@ -3,7 +3,7 @@ import React from 'react'
 class Unauthorized extends React.Component {
   render() {
     return (
-      <div className="container text-center">
+      <div className="container section text-center">
         <div className="row">
           <div className="col-md-12">
             <div className="error-template">

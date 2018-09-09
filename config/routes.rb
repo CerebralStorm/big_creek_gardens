@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/cart', to: 'static#index'
   get '/checkout', to: 'static#index'
   get '/confirmation/:id', to: 'static#index'
+  get '/account', to: 'static#index'
   get '/unauthorized', to: 'static#index', as: :unauthorized
 
   namespace :api, defaults: { format: :json } do
