@@ -62,16 +62,36 @@ class Header extends React.Component {
                       Contact
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <a href='/users/sign_in' className="nav-link">
-                      Sign In
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href='/users/sign_up' className="nav-link">
-                      Sign Up
-                    </a>
-                  </li>
+                  {this.props.currentUser &&
+                    <li className="nav-item">
+                      <a href='/account' method='DELETE' className="nav-link">
+                        My Account
+                      </a>
+                    </li>
+                  }
+                  {this.props.currentUser &&
+                    <li className="nav-item">
+                      <form className="nav-link" method="post" action="/users/sign_out">
+                        <input type="hidden" name="_method" value="delete" />
+                        <input type="hidden" name="authenticity_token" value={ENV.csrf_token} />
+                        <input type="submit" value="Log Out" />
+                      </form>
+                    </li>
+                  }
+                  {!this.props.currentUser &&
+                    <li className="nav-item">
+                      <a href='/users/sign_in' className="nav-link">
+                        Sign In
+                      </a>
+                    </li>
+                  }
+                  {!this.props.currentUser &&
+                    <li className="nav-item">
+                      <a href='/users/sign_up' className="nav-link">
+                        Sign Up
+                      </a>
+                    </li>
+                  }
                   <li className="nav-item">
                     <Link to={'/cart'} className="nav-link">
                       <FontAwesomeIcon icon='shopping-cart' /> Cart ({this.cartCount()})
