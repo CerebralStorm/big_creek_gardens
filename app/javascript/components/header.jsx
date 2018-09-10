@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import logo from '../assets/images/logo-alpha.png'
 import { loadCart } from '../actions/cart'
 import { Link } from 'react-router-dom'
@@ -20,7 +18,7 @@ class Header extends React.Component {
   cartCount() {
     let quantity = 0;
     if(this.props.cart && Object.keys(this.props.cart).length > 0){
-      Object.values(this.props.cart).forEach((item, index) => {
+      Object.values(this.props.cart).forEach((item) => {
         quantity += item.quantity
       })
     }
@@ -31,8 +29,8 @@ class Header extends React.Component {
     return (
       <header>
         <nav className="navbar fixed-top navbar-expand-lg">
-          <div className='container'>
-            <Link to={'/'} className='navbar-brand'>
+          <div className="container">
+            <Link to={'/'} className="navbar-brand">
               <img src={logo} width="100" />
             </Link>
             <button className="navbar-toggler hidden-md-up pull-xs-right" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -52,11 +50,6 @@ class Header extends React.Component {
                       Shop
                     </Link>
                   </li>
-{/*                  <li className="nav-item">
-                    <Link to={'/gallery'} className="nav-link">
-                      Gallery
-                    </Link>
-                  </li>*/}
                   <li className="nav-item">
                     <Link to={'/contact'} className="nav-link">
                       Contact
@@ -74,27 +67,27 @@ class Header extends React.Component {
                       <form className="nav-link" method="post" action="/users/sign_out">
                         <input type="hidden" name="_method" value="delete" />
                         <input type="hidden" name="authenticity_token" value={ENV.csrf_token} />
-                        <input type="submit" value="Log Out" className='as-link' />
+                        <input type="submit" value="Log Out" className="as-link" />
                       </form>
                     </li>
                   }
                   {!this.props.currentUser &&
                     <li className="nav-item">
-                      <a href='/users/sign_in' className="nav-link">
+                      <a href="/users/sign_in" className="nav-link">
                         Sign In
                       </a>
                     </li>
                   }
                   {!this.props.currentUser &&
                     <li className="nav-item">
-                      <a href='/users/sign_up' className="nav-link">
+                      <a href="/users/sign_up" className="nav-link">
                         Sign Up
                       </a>
                     </li>
                   }
                   <li className="nav-item">
                     <Link to={'/cart'} className="nav-link">
-                      <FontAwesomeIcon icon='shopping-cart' /> Cart ({this.cartCount()})
+                      <FontAwesomeIcon icon="shopping-cart" /> Cart ({this.cartCount()})
                     </Link>
                   </li>
                 </ul>

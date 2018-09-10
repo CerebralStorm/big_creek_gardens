@@ -3,7 +3,7 @@ import constants from '../constants'
 ENV.Cookies = Cookies
 
 let cartKey = function (currentUser = null) {
-  if(!!currentUser) {
+  if(currentUser) {
     return `${currentUser.id}_cart`;
   } else {
     return 'guest_cart';
@@ -11,7 +11,7 @@ let cartKey = function (currentUser = null) {
 }
 
 let verifyCart = function (currentUser = null, cart = null) {
-  if(typeof(cart) !== 'object') {
+  if(typeof (cart) !== 'object') {
     Cookies.set(cartKey(currentUser), {});
     cart = {}
   }

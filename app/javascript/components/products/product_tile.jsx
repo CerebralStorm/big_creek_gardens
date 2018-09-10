@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateCart, loadCart } from '../../actions/cart'
@@ -29,13 +27,13 @@ class ProductTile extends React.Component {
   render() {
     return (
       <div className="product-tile col-xs-12 col-sm-12 col-md-4 col-lg-3">
-        <img src={this.props.product.image_url}  height="160" alt="Product Image" />
+        <img src={this.props.product.image_url} height="160" alt="Product Image" />
         <div className="product-details">
-          <h6 className='product-title p-2'>{this.props.product.name}</h6>
+          <h6 className="product-title p-2">{this.props.product.name}</h6>
           <p className="product-description">{this.props.product.description}</p>
-          <p className='product-price'><strong>${this.props.product.price}</strong></p>
-          <p className='product-cart-add'>
-            <a href='#' className='btn btn-success' onClick={this.addToCart}><FontAwesomeIcon icon='plus' className='mr-1' />Add to Cart</a>
+          <p className="product-price"><strong>${this.props.product.price}</strong></p>
+          <p className="product-cart-add">
+            <a href="#" className="btn btn-success" onClick={this.addToCart}><FontAwesomeIcon icon="plus" className="mr-1" />Add to Cart</a>
           </p>
         </div>
       </div>

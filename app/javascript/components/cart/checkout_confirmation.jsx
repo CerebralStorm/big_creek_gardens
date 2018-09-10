@@ -50,7 +50,7 @@ class CheckoutConfirmation extends React.Component {
                 </div>
               </center>
             </div>
-            <div className='col-12'>
+            <div className="col-12">
               <table className="table">
                 <thead className="thead-dark">
                   <tr>
@@ -72,7 +72,7 @@ class CheckoutConfirmation extends React.Component {
                 </tbody>
               </table>
               <hr />
-              <strong className='pull-right'>Total: ${this.state.order.total}</strong>
+              <strong className="pull-right">Total: ${this.state.order.total}</strong>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-require "stripe"
+require 'stripe'
 class StripeChargesServices
   DEFAULT_CURRENCY = 'usd'.freeze
 
@@ -6,14 +6,10 @@ class StripeChargesServices
     @params = params
     @stripe_email = params.dig(:user, :email)
     @stripe_token = params[:stripe_token]
+    @user = user
     @user ||= User.where(email: stripe_email).first_or_initialize
-    @user.save(validate: false) unless @user.persisted?
+    @user.save unless @user.persisted?
     save_user_info
-    if params[:order_id].present?
-      @order = Order.find(params[:order_id])
-    else
-      @order = create_order
-    end
     Stripe.api_key ||= ENV['STRIPE_SECRET_KEY']
   end
 
@@ -23,16 +19,21 @@ class StripeChargesServices
 
   private
 
-  attr_accessor :user, :stripe_email, :stripe_token, :order, :params
+  attr_accessor :user, :stripe_email, :stripe_token, :params
+
+  def order
+    return @order if @order.present?
+    @order = if params[:order_id].present?
+               Order.find(params[:order_id])
+             else
+               create_order
+             end
+  end
 
   def save_user_info
-    user.name ||= params[:user][:name]
-    user.phone ||= params[:user][:phone]
-    user.address ||= params[:user][:address_line1]
-    user.city ||= params[:user][:address_city]
-    user.state ||= params[:user][:address_state]
-    user.zip ||= params[:user][:address_zip]
-    user.save if user.changed?
+    params[:user].each_pair do |key, value|
+      user.send("#{key}=", value) unless user.send(key).present?
+    end
   end
 
   def create_order
@@ -69,7 +70,7 @@ class StripeChargesServices
       amount: order.total_in_cents,
       description: customer.email,
       currency: DEFAULT_CURRENCY,
-      metadata: {'order_id' => order.id}
+      metadata: { 'order_id' => order.id }
     )
     create_charge_record(customer)
   end

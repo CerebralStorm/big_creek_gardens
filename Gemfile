@@ -8,6 +8,7 @@ ruby '2.5.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'brakeman'
+gem 'cancancan'
 gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.5.0'
@@ -22,11 +23,10 @@ gem 'rails', '~> 5.2.1'
 gem 'rails_admin', '~> 1.3'
 gem 'sass-rails', '~> 5.0'
 gem 'simplecov', '~> 0.16.1'
+gem 'stripe'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '~> 3.5'
-gem 'stripe'
-gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

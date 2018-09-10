@@ -8,7 +8,7 @@ class FlashMessage extends React.Component {
     this.handleClose = this.handleClose.bind(this)
   }
 
-  handleClose(event) {
+  handleClose() {
     this.props.dispatch({ type: constants.CLEAR_FLASH_MESSAGE })
   }
 

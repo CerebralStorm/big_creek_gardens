@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import MessageApi from '../api/message_api'
 import { connect } from 'react-redux'
 import { showFlashMessage } from '../actions/flash'
@@ -29,7 +27,7 @@ class Contact extends React.Component {
       name: this.state.name,
       email: this.state.email,
       message: this.state.message
-    }).then((response) => {
+    }).then(() => {
       this.props.dispatch(showFlashMessage('Thank you for your message', 'success'))
       this.setState({
         name: '',
@@ -49,15 +47,15 @@ class Contact extends React.Component {
             <form className="form-horizontal">
               <div className="form-group">
                 <label htmlFor="contact-name">Name</label>
-                <input name='name' type="text" className="form-control" id="contact-name" onChange={this.handleChange} value={this.state.name} />
+                <input name="name" type="text" className="form-control" id="contact-name" onChange={this.handleChange} value={this.state.name} />
               </div>
               <div className="form-group">
                 <label htmlFor="contact-email">Email</label>
-                <input name='email' type="email" className="form-control" id="contact-email" onChange={this.handleChange} value={this.state.email} />
+                <input name="email" type="email" className="form-control" id="contact-email" onChange={this.handleChange} value={this.state.email} />
               </div>
               <div className="form-group ">
                 <label htmlFor="contact-text">Your Message</label>
-               <textarea name='message' className="form-control" id="contact-text" onChange={this.handleChange} value={this.state.message}></textarea>
+               <textarea name="message" className="form-control" id="contact-text" onChange={this.handleChange} value={this.state.message}></textarea>
               </div>
               <button type="submit" className="btn btn-default" onClick={this.submitMessage} >Send Message</button>
             </form>

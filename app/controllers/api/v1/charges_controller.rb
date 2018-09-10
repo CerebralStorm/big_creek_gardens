@@ -12,20 +12,21 @@ module Api
 
       private
 
+      # rubocop:disable Metrics/MethodLength
       def charges_params
-        params.permit!
-        # params.permit(
-        #   :stripe_token,
-        #   user: [
-        #     :name,
-        #     :address_line1,
-        #     :address_city,
-        #     :address_state,
-        #     :address_zip,
-        #     :address_country
-        #   ]
-        # )
+        params.permit(
+          :stripe_token,
+          user: [
+            :name,
+            :phone,
+            :address,
+            :city,
+            :state,
+            :zip
+          ]
+        )
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end

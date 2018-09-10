@@ -60,12 +60,12 @@ class Account extends React.Component {
       return option.value == this.props.state;
     })
     return (
-      <div className='container section'>
-        <div className='card'>
-          <div className='col-sm-12 col-md-12 card pb-3'>
+      <div className="container section">
+        <div className="card">
+          <div className="col-sm-12 col-md-12 card pb-3">
             <UserSection handleChange={this.handleChange} name={this.state.name} email={this.state.email} phone={this.state.phone} />
             <AddressSection handleStateChange={this.handleStateChange} handleChange={this.handleChange} address={this.state.address} city={this.state.city} state={this.state.state} zip={this.state.zip} />
-            <button onClick={this.handleSubmit} className='btn btn-success pull-right'>Update Settings</button>
+            <button onClick={this.handleSubmit} className="btn btn-success pull-right">Update Settings</button>
           </div>
         </div>
         <hr />

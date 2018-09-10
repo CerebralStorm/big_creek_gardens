@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        if @order = Order.create(order_params)
+        if (@order = Order.create(order_params))
           render json: { order: @order }, status: :ok
         else
           render json: { error: error.message }, status: :unprocessable_entity

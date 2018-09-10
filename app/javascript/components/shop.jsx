@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadProducts } from '../actions/product'
 import ProductTile from './products/product_tile'
@@ -13,7 +11,7 @@ class Shop extends React.Component {
   render() {
     return (
       <div className="container mt-3 mb-3">
-        <div className='row'>
+        <div className="row">
           {this.props.products.map(product => (
             <ProductTile key={product.id} product={product} />
           ))}

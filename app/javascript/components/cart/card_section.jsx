@@ -7,7 +7,7 @@ class CardSection extends React.Component {
       <div>
         <div className="form-group m-2">
           <label htmlFor="checkoutCreditCard">Credit Card</label>
-          <CardElement id='checkoutCreditCard' className="form-control" />
+          <CardElement id="checkoutCreditCard" className="form-control" />
         </div>
       </div>
     );

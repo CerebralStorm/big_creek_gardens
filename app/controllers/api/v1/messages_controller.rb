@@ -4,7 +4,7 @@ module Api
       skip_before_action :authenticate_user!
 
       def create
-        if @message = Message.create(message_params)
+        if (@message = Message.create(message_params))
           render json: { message: @message }, status: :ok
         else
           render json: { error: error.message }, status: :unprocessable_entity

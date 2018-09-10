@@ -56,7 +56,6 @@ class CheckoutForm extends React.Component {
     let user = {
       name: this.state.name,
       email: this.state.email,
-      phone: this.state.phone,
       address_line1: this.state.address,
       address_city: this.state.city,
       address_state: this.state.state,
@@ -74,7 +73,7 @@ class CheckoutForm extends React.Component {
     let {token} = await this.props.stripe.createToken(user);
     ChargeApi.createCharge({
       stripe_token: token.id,
-      user: user,
+      user: this.state,
       order_line_items_attributes: orderlineItems
     }).then((response) => {
       updateCart(this.props.currentUser, {})

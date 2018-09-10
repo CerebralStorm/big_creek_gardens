@@ -58,12 +58,12 @@ class Cart extends React.Component {
             </div>
           </div>
           <div className="pull-right" style={{margin: '10px'}}>
-            <Link to='/checkout' className="btn btn-success pull-right">Checkout</Link>
+            <Link to="/checkout" className="btn btn-success pull-right">Checkout</Link>
             <div className="pull-right total-price" style={{margin: '5px'}}>
               <strong>Total price: <b>${this.totalPrice()}</b></strong>
             </div>
           </div>
-          <div className='clearfix'></div>
+          <div className="clearfix"></div>
         </div>
       </div>
     );

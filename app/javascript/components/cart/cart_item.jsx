@@ -1,8 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateCart, loadCart } from '../../actions/cart'
 
 class CartItem extends React.Component {
@@ -42,7 +39,7 @@ class CartItem extends React.Component {
     this.updateAndLoadCart(newCart)
   }
 
-  clearItem(event) {
+  clearItem() {
     let newCart = this.props.cart
     delete newCart[this.props.product.id]
     this.updateAndLoadCart(newCart)

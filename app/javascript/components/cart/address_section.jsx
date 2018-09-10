@@ -16,12 +16,12 @@ class AddressSection extends React.Component {
       <div>
         <div className="form-group m-2">
           <label htmlFor="checkoutCity">Address</label>
-          <input name='address' type="text" id='checkoutCity' className="form-control" onChange={this.props.handleChange} value={this.props.address} />
+          <input name="address" type="text" id="checkoutCity" className="form-control" onChange={this.props.handleChange} value={this.props.address} />
         </div>
-        <div className='row'>
+        <div className="row">
           <div className="form-group col-sm-12 ml-2 col-md-3">
             <label htmlFor="checkoutCity">City</label>
-            <input name='city' type="text" id='checkoutCity' className="form-control" onChange={this.props.handleChange} value={this.props.city} />
+            <input name="city" type="text" id="checkoutCity" className="form-control" onChange={this.props.handleChange} value={this.props.city} />
           </div>
           <div className="form-group col-sm-12 col-md-3 checkout-state">
             <label htmlFor="checkoutState">State</label>
@@ -33,7 +33,7 @@ class AddressSection extends React.Component {
           </div>
           <div className="form-group col-sm-12 mr-2 col-md-3">
             <label htmlFor="checkoutZip">Zip</label>
-            <input name='zip' type="text" id='checkoutZip' className="form-control" onChange={this.props.handleChange} value={this.props.zip} />
+            <input name="zip" type="text" id="checkoutZip" className="form-control" onChange={this.props.handleChange} value={this.props.zip} />
           </div>
         </div>
       </div>

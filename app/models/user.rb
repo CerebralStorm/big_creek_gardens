@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   serialize :roles
-  after_initialize do |user|
+  after_initialize do |_user|
     self.roles ||= []
   end
 end
