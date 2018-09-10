@@ -14,7 +14,7 @@ class Cart extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(loadCart())
+    this.props.dispatch(loadCart(this.props.currentUser))
   }
 
   totalPrice() {
@@ -73,7 +73,7 @@ class Cart extends React.Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
-    cart: state.cart
+    cart: state.cart || {}
   }
 }
 

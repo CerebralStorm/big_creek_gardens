@@ -1,7 +1,9 @@
 import React from 'react';
-import OrderApi from '../../api/order_api'
+import OrderApi from '../api/order_api'
+import Moment from 'react-moment';
+import 'moment-timezone';
 
-class CheckoutConfirmation extends React.Component {
+class Order extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +30,7 @@ class CheckoutConfirmation extends React.Component {
           <div className="row marketing">
             <div className="col-12">
               <center>
-                <h4>Success - your order is confirmed!</h4>
+                <h4>Order Placed: <Moment>{this.state.order.createdAt}</Moment></h4>
                 <h5>Order Number: #{this.state.order.id}</h5>
                 <hr />
               </center>
@@ -81,4 +83,4 @@ class CheckoutConfirmation extends React.Component {
   }
 }
 
-export default CheckoutConfirmation;
+export default Order;

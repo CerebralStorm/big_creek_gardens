@@ -13,19 +13,24 @@ class CheckoutForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.totalPrice = this.totalPrice.bind(this);
+    this.displayTotalPrice = this.displayTotalPrice.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
     this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
+      name: this.props.currentUser.name,
+      email: this.props.currentUser.email,
+      phone: this.props.currentUser.phone,
+      address: this.props.currentUser.address,
+      city: this.props.currentUser.city,
+      state: this.props.currentUser.state,
+      zip: this.props.currentUser.zip,
       redirectToConfirmation: false,
       orderId: ''
     }
+  }
+
+  displayTotalPrice() {
+    return this.totalPrice().toFixed(2)
   }
 
   totalPrice() {
@@ -33,7 +38,7 @@ class CheckoutForm extends React.Component {
     Object.values(this.props.cart).forEach((item, index) => {
       total += (item.quantity * item.product.price)
     })
-    return total.toFixed(2)
+    return total
   }
 
   handleChange(event) {
@@ -43,7 +48,7 @@ class CheckoutForm extends React.Component {
   }
 
   handleStateChange(state) {
-    this.setState({state: state})
+    this.setState({state: state.value})
   }
 
   async handleSubmit(event) {
@@ -90,9 +95,9 @@ class CheckoutForm extends React.Component {
           <div className='row'>
             <div className='col-sm-12 col-md-8 card pb-3'>
               <UserSection handleChange={this.handleChange} name={this.state.name} email={this.state.email} phone={this.state.phone} />
-              <AddressSection handleStateChange={this.handleStateChange} handleChange={this.handleChange} address={this.state.address} state={this.state.state} zip={this.state.zip} />
+              <AddressSection handleStateChange={this.handleStateChange} handleChange={this.handleChange} address={this.state.address} city={this.state.city} state={this.state.state} zip={this.state.zip} />
               <CardSection />
-              <button onClick={this.handleSubmit} className='btn btn-success pull-right'>Confirm order</button>
+              <button onClick={this.handleSubmit} disabled={this.totalPrice() === 0} className='btn btn-success pull-right'>Confirm order</button>
             </div>
             <div className='col-sm-12 col-md-4'>
               <ul className='list-group mb-3'>
@@ -110,7 +115,7 @@ class CheckoutForm extends React.Component {
                 <span>
                   <h6>Total</h6>
                 </span>
-                <h6 className='text-center'><strong>${this.totalPrice()}</strong></h6>
+                <h6 className='text-center'><strong>${this.displayTotalPrice()}</strong></h6>
               </li>
               </ul>
             </div>
@@ -123,7 +128,7 @@ class CheckoutForm extends React.Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
-    cart: state.cart
+    cart: state.cart || {}
   }
 }
 
