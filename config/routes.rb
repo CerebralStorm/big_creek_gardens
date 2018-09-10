@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :charges
       resources :orders
       resources :messages
+      resources :users
     end
   end
 end

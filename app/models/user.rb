@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :orders
 
+  validates :email, uniqueness: true, presence: true
+
   serialize :roles
   after_initialize do |user|
     self.roles ||= []

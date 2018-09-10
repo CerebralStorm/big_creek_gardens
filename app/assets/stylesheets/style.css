@@ -1215,7 +1215,7 @@ ul.sidebar-gallery {
 }
 
 a.scrollup{
-    color:#fff;
+  color:#fff;
 	height:40px;
 	width:40px;
 	font-size:12px;
@@ -1237,4 +1237,20 @@ a.scrollup:hover{
 
 .error-template {
   color: black;
+}
+
+input.as-link {
+  text-transform: uppercase;
+  color:#333;
+  line-height:1.1em;
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+}
+
+input.as-link:hover {
+  text-decoration: none;
+  color:#eee;
 }
