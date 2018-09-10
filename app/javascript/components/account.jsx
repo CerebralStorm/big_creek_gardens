@@ -1,21 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { loadOrders } from '../actions/order'
 import { UserApi } from '../api/user_api'
 import { showFlashMessage } from '../actions/flash'
-import states from '../states.json';
-import Select from 'react-select';
 import Moment from 'react-moment';
 import 'moment-timezone';
 import UserSection from './cart/user_section'
 import AddressSection from './cart/address_section'
-
-const options = states.map((item) => (
-  { value: item.abbreviation, label: item.name }
-))
 
 class Account extends React.Component {
   constructor(props) {
@@ -50,15 +42,12 @@ class Account extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    UserApi.updateUser(this.props.currentUser.id, { user: this.state }).then((response) => {
+    UserApi.updateUser(this.props.currentUser.id, { user: this.state }).then(() => {
       this.props.dispatch(showFlashMessage(`Your settings have been saved.`, 'success'))
     })
   }
 
   render() {
-    let value = options.find((option) => {
-      return option.value == this.props.state;
-    })
     return (
       <div className="container section">
         <div className="card">

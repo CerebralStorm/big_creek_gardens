@@ -1,5 +1,4 @@
 import React from 'react';
-import {CardElement} from 'react-stripe-elements';
 import states from '../../states.json';
 import Select from 'react-select';
 

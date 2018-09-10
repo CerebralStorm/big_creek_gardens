@@ -29,7 +29,7 @@ class CartItem extends React.Component {
   }
 
   setQuantity(event) {
-    let value = Math.abs(parseInt(event.target.value))
+    let value = Math.abs(parseInt(event.target.value, 0))
     if(!event.target.value) {
       value = this.props.cartItem.quantity
       event.target.value = this.props.cartItem.quantity

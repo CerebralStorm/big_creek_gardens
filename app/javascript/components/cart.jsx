@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadCart } from '../actions/cart'
 import { Link } from 'react-router-dom'
@@ -19,7 +17,7 @@ class Cart extends React.Component {
 
   totalPrice() {
     let total = 0;
-    Object.values(this.props.cart).forEach((item, index) => {
+    Object.values(this.props.cart).forEach((item) => {
       total += (item.quantity * item.product.price)
     })
     return total.toFixed(2)
