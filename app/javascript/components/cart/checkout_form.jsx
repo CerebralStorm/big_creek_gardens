@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement, injectStripe} from 'react-stripe-elements';
+import { injectStripe } from 'react-stripe-elements';
 import { updateCart, loadCart } from '../../actions/cart'
 import ChargeApi from '../../api/charge_api'
 import { Redirect } from 'react-router';
@@ -35,7 +35,7 @@ class CheckoutForm extends React.Component {
 
   totalPrice() {
     let total = 0;
-    Object.values(this.props.cart).forEach((item, index) => {
+    Object.values(this.props.cart).forEach((item) => {
       total += (item.quantity * item.product.price)
     })
     return total
@@ -88,33 +88,33 @@ class CheckoutForm extends React.Component {
     }
 
     return (
-      <div className='container checkout-container'>
-        <h1 className='text-center'>Checkout</h1>
-        <form onSubmit={this.handleSubmit} className='m-4'>
-          <div className='row'>
-            <div className='col-sm-12 col-md-8 card pb-3'>
+      <div className="container checkout-container">
+        <h1 className="text-center">Checkout</h1>
+        <form onSubmit={this.handleSubmit} className="m-4">
+          <div className="row">
+            <div className="col-sm-12 col-md-8 card pb-3">
               <UserSection handleChange={this.handleChange} name={this.state.name} email={this.state.email} phone={this.state.phone} />
               <AddressSection handleStateChange={this.handleStateChange} handleChange={this.handleChange} address={this.state.address} city={this.state.city} state={this.state.state} zip={this.state.zip} />
               <CardSection />
-              <button onClick={this.handleSubmit} disabled={this.totalPrice() === 0} className='btn btn-success pull-right'>Confirm order</button>
+              <button onClick={this.handleSubmit} disabled={this.totalPrice() === 0} className="btn btn-success pull-right">Confirm order</button>
             </div>
-            <div className='col-sm-12 col-md-4'>
-              <ul className='list-group mb-3'>
-                <li className="list-group-item checkout-cart-header"><h6 className='text-center checkout-title'>Cart</h6></li>
+            <div className="col-sm-12 col-md-4">
+              <ul className="list-group mb-3">
+                <li className="list-group-item checkout-cart-header"><h6 className="text-center checkout-title">Cart</h6></li>
               {Object.values(this.props.cart).map(cartItem => (
                 <li key={cartItem.product.id} className="list-group-item d-flex justify-content-between lh-condensed">
-                  <div className='col-9 checkout-item-small'>
+                  <div className="col-9 checkout-item-small">
                     <h6 className="checkout-name">{cartItem.product.name}</h6>
                     <small className="text-muted checkout-description">{cartItem.product.description}</small>
                   </div>
                   <span className="text-muted">${(cartItem.product.price * cartItem.quantity).toFixed(2)}</span>
                 </li>
               ))}
-              <li className='list-group-item d-flex justify-content-between lh-condensed checkout-total'>
+              <li className="list-group-item d-flex justify-content-between lh-condensed checkout-total">
                 <span>
                   <h6>Total</h6>
                 </span>
-                <h6 className='text-center'><strong>${this.displayTotalPrice()}</strong></h6>
+                <h6 className="text-center"><strong>${this.displayTotalPrice()}</strong></h6>
               </li>
               </ul>
             </div>

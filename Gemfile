@@ -22,7 +22,6 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
 gem 'rails_admin', '~> 1.3'
 gem 'sass-rails', '~> 5.0'
-gem 'simplecov', '~> 0.16.1'
 gem 'stripe'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -34,6 +33,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'simplecov', '~> 0.16.1'
 end
 
 group :development do
