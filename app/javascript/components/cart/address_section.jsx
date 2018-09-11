@@ -41,3 +41,4 @@ class AddressSection extends React.Component {
 }
 
 export default AddressSection;
+export { AddressSection };

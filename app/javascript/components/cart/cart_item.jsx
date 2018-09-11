@@ -90,4 +90,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CartItem)
+export { CartItem };
 

@@ -12,3 +12,4 @@ var flashMessageReducer = function (state = {}, action) {
 }
 
 export default flashMessageReducer;
+export { flashMessageReducer };

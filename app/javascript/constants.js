@@ -4,6 +4,7 @@ const constants = {
   CLEAR_FLASH_MESSAGE: 'CLEAR_FLASH_MESSAGE',
   LOAD_CART: 'LOAD_CART',
   LOAD_ORDERS: 'LOAD_ORDERS',
+  LOAD_ORDER: 'LOAD_ORDER',
 }
 
 export { constants };

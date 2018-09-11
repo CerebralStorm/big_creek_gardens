@@ -11,7 +11,9 @@
         "useBuiltIns": true
       }
     ],
-    "react"
+    "airbnb",
+    "react",
+    "jest"
   ],
   "plugins": [
     "syntax-dynamic-import",

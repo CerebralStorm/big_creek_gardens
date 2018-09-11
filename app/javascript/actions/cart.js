@@ -3,11 +3,12 @@ import constants from '../constants'
 ENV.Cookies = Cookies
 
 let cartKey = function (currentUser = null) {
-  if(currentUser) {
-    return `${currentUser.id}_cart`;
-  } else {
-    return 'guest_cart';
-  }
+  // if(currentUser) {
+  //   return `${currentUser.id}_cart`;
+  // } else {
+  //   return 'guest_cart';
+  // }
+  return 'cart';
 }
 
 let verifyCart = function (currentUser = null, cart = null) {

@@ -132,3 +132,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(injectStripe(CheckoutForm))
+const StripeCheckoutForm = injectStripe(CheckoutForm)
+export { StripeCheckoutForm, CheckoutForm };

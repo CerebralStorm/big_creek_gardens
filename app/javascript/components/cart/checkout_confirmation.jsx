@@ -82,3 +82,4 @@ class CheckoutConfirmation extends React.Component {
 }
 
 export default CheckoutConfirmation;
+export { CheckoutConfirmation };

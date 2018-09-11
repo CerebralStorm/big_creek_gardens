@@ -15,3 +15,4 @@ class CardSection extends React.Component {
 }
 
 export default CardSection;
+export { CardSection };

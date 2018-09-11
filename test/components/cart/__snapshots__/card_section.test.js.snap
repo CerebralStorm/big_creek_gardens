@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a CardSection 1`] = `
+<div>
+  <div
+    className="form-group m-2"
+  >
+    <label
+      htmlFor="checkoutCreditCard"
+    >
+      Credit Card
+    </label>
+    <CardElement
+      className="form-control"
+      id="checkoutCreditCard"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onReady={[Function]}
+    />
+  </div>
+</div>
+`;

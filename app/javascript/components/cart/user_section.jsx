@@ -24,3 +24,4 @@ class UserSection extends React.Component {
 }
 
 export default UserSection;
+export { UserSection };
