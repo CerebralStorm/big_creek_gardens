@@ -1,50 +1,60 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as actions from '../../../app/javascript/admin/actions/library_course'
+import * as actions from '../../app/javascript/actions/order'
 import MockAdapter from 'axios-mock-adapter';
-import axios from '../../../app/javascript/shared/axios'
+import axios from '../../app/javascript/custom_axios'
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('createLibraryCourse', () => {
-  it(`should createLibraryCourse`, () => {
+describe('loadOrders', () => {
+  it(`should loadOrders`, () => {
+    let orders = [
+      {
+        id: 1,
+        orderLineItems: []
+      }
+    ]
     var mock = new MockAdapter(axios);
-    mock.onPost().reply(200, {id: 1, library_id: 1, course_id: 1} )
-    const store = mockStore({ });
-    return store.dispatch(actions.createLibraryCourse({library_course: {library_id: 1, course_id: 1}})).then(() => {
-      expect(store.getActions()[0].type).toEqual('DISPLAY_FLASH_MESSAGE')
-      expect(store.getActions()[0].message).toEqual('Your course has been successfully added.')
+    mock.onGet().reply(200, {orders: orders})
+    const store = mockStore({});
+    return store.dispatch(actions.loadOrders()).then(() => {
+      expect(store.getActions()[0].type).toEqual('LOAD_ORDERS')
+      expect(store.getActions()[0].orders).toEqual(orders)
     })
   });
-  it(`should fail createLibraryCourse`, () => {
+  it(`should fail loadOrders`, () => {
     var mock = new MockAdapter(axios);
-    mock.onPost().reply(500)
+    mock.onGet().reply(500)
     const store = mockStore({ });
-    return store.dispatch(actions.createLibraryCourse({library_course: {library_id: 1, course_id: 1}})).then(() => {
+    return store.dispatch(actions.loadOrders()).then(() => {
       expect(store.getActions()[0].type).toEqual('DISPLAY_FLASH_MESSAGE')
-      expect(store.getActions()[0].message).toEqual('An error occurred while attempting to load courses.')
+      expect(store.getActions()[0].message).toEqual('An error occurred while attempting to load orders.')
     })
   });
 });
 
-describe('destroyLibraryCourse', () => {
-  it(`should destroyLibraryCourse`, () => {
+describe('loadOrder', () => {
+  it(`should loadOrder`, () => {
+    let order = {
+      id: 1,
+      orderLineItems: []
+    }
     var mock = new MockAdapter(axios);
-    mock.onDelete().reply(200)
-    const store = mockStore({ });
-    return store.dispatch(actions.destroyLibraryCourse({library_id: 1, course_id: 1})).then(() => {
-      expect(store.getActions()[0].type).toEqual('DISPLAY_FLASH_MESSAGE')
-      expect(store.getActions()[0].message).toEqual('Course successfully removed.')
+    mock.onGet().reply(200, {order: order})
+    const store = mockStore({});
+    return store.dispatch(actions.loadOrder()).then(() => {
+      expect(store.getActions()[0].type).toEqual('LOAD_ORDER')
+      expect(store.getActions()[0].order).toEqual(order)
     })
   });
-  it(`should fail createLibraryCourse`, () => {
+  it(`should fail loadOrder`, () => {
     var mock = new MockAdapter(axios);
-    mock.onPost().reply(500)
+    mock.onGet().reply(500)
     const store = mockStore({ });
-    return store.dispatch(actions.destroyLibraryCourse({library_id: 1, course_id: 1})).then(() => {
+    return store.dispatch(actions.loadOrder()).then(() => {
       expect(store.getActions()[0].type).toEqual('DISPLAY_FLASH_MESSAGE')
-      expect(store.getActions()[0].message).toEqual('An error occurred while attempting to load courses.')
+      expect(store.getActions()[0].message).toEqual('An error occurred while attempting to load order.')
     })
   });
 });

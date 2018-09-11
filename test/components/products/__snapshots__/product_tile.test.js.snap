@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a ProductTile 1`] = `
+<div
+  className="product-tile col-xs-12 col-sm-12 col-md-4 col-lg-3"
+>
+  <img
+    alt="Product Image"
+    height="160"
+  />
+  <div
+    className="product-details"
+  >
+    <h6
+      className="product-title p-2"
+    >
+      test product
+    </h6>
+    <p
+      className="product-description"
+    />
+    <p
+      className="product-price"
+    >
+      <strong>
+        $
+      </strong>
+    </p>
+    <p
+      className="product-cart-add"
+    >
+      <a
+        className="btn btn-success"
+        href="#"
+        onClick={[Function]}
+      >
+        <FontAwesomeIcon
+          border={false}
+          className="mr-1"
+          fixedWidth={false}
+          flip={null}
+          icon="plus"
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+        Add to Cart
+      </a>
+    </p>
+  </div>
+</div>
+`;

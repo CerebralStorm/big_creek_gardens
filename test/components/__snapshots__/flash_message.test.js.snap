@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a FlashMessage 1`] = `
+<div
+  className="container"
+  onClick={[Function]}
+>
+  <div
+    className="alert alert-success"
+    role="alert"
+  >
+    this is a test
+    <button
+      aria-label="Close"
+      className="close"
+      data-dismiss="alert"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ×
+      </span>
+    </button>
+  </div>
+</div>
+`;

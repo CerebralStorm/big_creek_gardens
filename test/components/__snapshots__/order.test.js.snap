@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a Order 1`] = `
+<div>
+  <div
+    className="container mt-3 mb-3 confirmation-container"
+  >
+    <div
+      className="row marketing"
+    >
+      <div
+        className="col-12"
+      >
+        <center>
+          <h4>
+            Order Placed: 
+            <t
+              ago={false}
+              calendar={false}
+              decimal={false}
+              element="time"
+              filter={[Function]}
+              fromNow={false}
+              interval={60000}
+              onChange={[Function]}
+              toNow={false}
+              unit={null}
+              unix={false}
+              utc={false}
+            />
+          </h4>
+          <h5>
+            Order Number: #
+          </h5>
+          <hr />
+        </center>
+      </div>
+      <div
+        className="col-12"
+      >
+        <center>
+          <div
+            className="card"
+          >
+            <div
+              className="card-body"
+            >
+              <address>
+                <strong>
+                  Shipping Address:
+                </strong>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                , 
+                , 
+              </address>
+            </div>
+          </div>
+        </center>
+      </div>
+      <div
+        className="col-12"
+      >
+        <table
+          className="table"
+        >
+          <thead
+            className="thead-dark"
+          >
+            <tr>
+              <th
+                scope="col"
+              >
+                Product Name
+              </th>
+              <th
+                scope="col"
+              >
+                Quantity
+              </th>
+              <th
+                scope="col"
+              >
+                Price
+              </th>
+              <th
+                scope="col"
+              >
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+        <hr />
+        <strong
+          className="pull-right"
+        >
+          Total: $
+        </strong>
+      </div>
+    </div>
+  </div>
+</div>
+`;

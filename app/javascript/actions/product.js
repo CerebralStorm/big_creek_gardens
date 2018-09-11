@@ -9,7 +9,7 @@ var loadProducts = function (params = {}) {
         dispatch({ type: constants.LOAD_PRODUCTS, products: response.data.products })
       })
       .catch(error => {
-        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load accounts.')
+        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load products.')
       })
   }
 }

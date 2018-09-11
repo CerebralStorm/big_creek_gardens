@@ -9,7 +9,7 @@ var loadOrders = function (params = {}) {
         dispatch({ type: constants.LOAD_ORDERS, orders: response.data.orders })
       })
       .catch(error => {
-        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load accounts.')
+        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load orders.')
       })
   }
 }
@@ -18,10 +18,10 @@ var loadOrder = function (orderId, params = {}) {
   return function (dispatch) {
     return OrderApi.loadOrder(orderId, params)
       .then(response => {
-        dispatch({ type: constants.LOAD_ORDER, orders: response.data.order })
+        dispatch({ type: constants.LOAD_ORDER, order: response.data.order })
       })
       .catch(error => {
-        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load accounts.')
+        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load order.')
       })
   }
 }

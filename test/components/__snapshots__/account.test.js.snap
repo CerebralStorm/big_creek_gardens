@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a Account 1`] = `
+<div
+  className="container section"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="col-sm-12 col-md-12 card pb-3"
+    >
+      <UserSection
+        handleChange={[Function]}
+        name="Steve"
+      />
+      <AddressSection
+        handleChange={[Function]}
+        handleStateChange={[Function]}
+      />
+      <button
+        className="btn btn-success pull-right"
+        onClick={[Function]}
+      >
+        Update Settings
+      </button>
+    </div>
+  </div>
+  <hr />
+  <h1>
+    My Past Orders
+  </h1>
+  <hr />
+  <ul
+    className="list-group"
+  />
+</div>
+`;

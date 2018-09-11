@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a Contact 1`] = `
+<div
+  className="container mt-3 mb-3"
+>
+  <h2>
+    Contact Us
+  </h2>
+  <p>
+    Feel free to shout us by filling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.
+  </p>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-8 col-md-offset-2"
+    >
+      <form
+        className="form-horizontal"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="contact-name"
+          >
+            Name
+          </label>
+          <input
+            className="form-control"
+            id="contact-name"
+            name="name"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="contact-email"
+          >
+            Email
+          </label>
+          <input
+            className="form-control"
+            id="contact-email"
+            name="email"
+            onChange={[Function]}
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="form-group "
+        >
+          <label
+            htmlFor="contact-text"
+          >
+            Your Message
+          </label>
+          <textarea
+            className="form-control"
+            id="contact-text"
+            name="message"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <button
+          className="btn btn-default"
+          onClick={[Function]}
+          type="submit"
+        >
+          Send Message
+        </button>
+      </form>
+      <hr />
+      <h3>
+        Our Social Sites
+      </h3>
+      <ul
+        className="list-inline banner-social-buttons"
+      >
+        <li>
+          <a
+            className="btn btn-default btn-lg"
+            href="#"
+          >
+            <i
+              className="fa fa-twitter"
+            >
+               
+              <span
+                className="network-name"
+              >
+                Twitter
+              </span>
+            </i>
+          </a>
+        </li>
+        <li>
+          <a
+            className="btn btn-default btn-lg"
+            href="#"
+          >
+            <i
+              className="fa fa-facebook"
+            >
+               
+              <span
+                className="network-name"
+              >
+                Facebook
+              </span>
+            </i>
+          </a>
+        </li>
+        <li>
+          <a
+            className="btn btn-default btn-lg"
+            href="#"
+          >
+            <i
+              className="fa fa-youtube-play"
+            >
+               
+              <span
+                className="network-name"
+              >
+                Youtube
+              </span>
+            </i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

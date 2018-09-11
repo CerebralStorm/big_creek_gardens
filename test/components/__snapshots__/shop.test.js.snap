@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a Shop 1`] = `
+<div
+  className="container mt-3 mb-3"
+>
+  <div
+    className="row"
+  />
+</div>
+`;

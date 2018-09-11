@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a CheckoutForm 1`] = `
+<div
+  className="container checkout-container"
+>
+  <h1
+    className="text-center"
+  >
+    Checkout
+  </h1>
+  <form
+    className="m-4"
+    onSubmit={[Function]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12 col-md-8 card pb-3"
+      >
+        <UserSection
+          handleChange={[Function]}
+          name="Steve"
+        />
+        <AddressSection
+          handleChange={[Function]}
+          handleStateChange={[Function]}
+        />
+        <CardSection />
+        <button
+          className="btn btn-success pull-right"
+          disabled={true}
+          onClick={[Function]}
+        >
+          Confirm order
+        </button>
+      </div>
+      <div
+        className="col-sm-12 col-md-4"
+      >
+        <ul
+          className="list-group mb-3"
+        >
+          <li
+            className="list-group-item checkout-cart-header"
+          >
+            <h6
+              className="text-center checkout-title"
+            >
+              Cart
+            </h6>
+          </li>
+          <li
+            className="list-group-item d-flex justify-content-between lh-condensed checkout-total"
+          >
+            <span>
+              <h6>
+                Total
+              </h6>
+            </span>
+            <h6
+              className="text-center"
+            >
+              <strong>
+                $
+                0.00
+              </strong>
+            </h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
+`;

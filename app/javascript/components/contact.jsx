@@ -82,3 +82,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Contact)
+export { Contact };

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a Cart 1`] = `
+<div
+  className="container cart-container"
+>
+  <div
+    className="card shopping-cart"
+  >
+    <div
+      className="card-header bg-dark text-light"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart mr-md-3"
+      />
+      <strong>
+        Shopping Cart
+      </strong>
+      <Link
+        className="btn btn-outline-success btn-sm pull-right"
+        replace={false}
+        to="/shop"
+      >
+        Continue Shopping
+      </Link>
+      <div
+        className="clearfix"
+      />
+    </div>
+    <div
+      className="card-body"
+    />
+  </div>
+  <div
+    className="card-footer"
+  >
+    <div
+      className="coupon col-md-5 col-sm-5 no-padding-left pull-left"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-6"
+        >
+          <input
+            className="form-control"
+            placeholder="coupon code"
+            type="text"
+          />
+        </div>
+        <div
+          className="col-6"
+        >
+          <input
+            className="btn btn-default"
+            type="submit"
+            value="Use coupon"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="pull-right"
+      style={
+        Object {
+          "margin": "10px",
+        }
+      }
+    >
+      <Link
+        className="btn btn-success pull-right"
+        replace={false}
+        to="/checkout"
+      >
+        Checkout
+      </Link>
+      <div
+        className="pull-right total-price"
+        style={
+          Object {
+            "margin": "5px",
+          }
+        }
+      >
+        <strong>
+          Total price: 
+          <b>
+            $
+            0.00
+          </b>
+        </strong>
+      </div>
+    </div>
+    <div
+      className="clearfix"
+    />
+  </div>
+</div>
+`;
