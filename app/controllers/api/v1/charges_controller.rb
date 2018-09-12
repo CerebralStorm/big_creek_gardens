@@ -16,6 +16,7 @@ module Api
       def charges_params
         params.permit(
           :stripe_token,
+          order_line_items_attributes: [:product_id, :quantity],
           user: [
             :name,
             :phone,
