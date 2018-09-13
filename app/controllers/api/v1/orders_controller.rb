@@ -11,14 +11,6 @@ module Api
         @order = Order.find(params[:id])
       end
 
-      def create
-        if (@order = Order.create(order_params))
-          render json: { order: @order }, status: :ok
-        else
-          render json: { error: error.message }, status: :unprocessable_entity
-        end
-      end
-
       private
 
       def order_params
