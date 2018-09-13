@@ -30,12 +30,12 @@ gem 'webpacker', '~> 3.5'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'simplecov', '~> 0.16.1'
-  gem 'faker'
 end
 
 group :development do

@@ -23,11 +23,12 @@ class Contact extends React.Component {
 
   submitMessage(event) {
     event.preventDefault()
-    MessageApi.createMessage({
+    let message = {
       name: this.state.name,
       email: this.state.email,
       message: this.state.message
-    }).then(() => {
+    }
+    MessageApi.createMessage({message: message}).then(() => {
       this.props.dispatch(showFlashMessage('Thank you for your message', 'success'))
       this.setState({
         name: '',

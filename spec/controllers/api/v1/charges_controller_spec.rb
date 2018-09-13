@@ -2,82 +2,91 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ChargesController, type: :controller do
   let(:stripe_helper) { StripeMock.create_test_helper }
-  before { StripeMock.start }
-  after { StripeMock.stop }
 
   let(:product) { FactoryBot.create(:product) }
 
-  let(:card_token) {
-    StripeMock.generate_card_token(last4: "9191", exp_year: 1984)
-  }
+  let(:card_token) do
+    StripeMock.generate_card_token(last4: '9191', exp_year: 1984)
+  end
 
-  let(:params) {
+  let(:email) { Faker::Internet.email }
+
+  let(:params) do
     {
-      "stripe_token"=> card_token,
-      "order_line_items_attributes"=>[
-        {"product_id"=>product.id, "quantity"=>1}
+      'stripe_token' => card_token,
+      'order_line_items_attributes' => [
+        { 'product_id' => product.id, 'quantity' => 1 }
       ],
-      "user"=> {
-        "email"=>Faker::Internet.email,
-        "name"=>"Test User",
-        "phone"=>"8014446666",
-        "address"=>"123 S LollyLand St",
-        "city"=>"Salt Lake City",
-        "state"=>"UT",
-        "zip"=>"84109"
+      'user' => {
+        'email' => email,
+        'name' => 'Test User',
+        'phone' => '8014446666',
+        'address' => '123 S LollyLand St',
+        'city' => 'Salt Lake City',
+        'state' => 'UT',
+        'zip' => '84109'
       }
     }.with_indifferent_access
-  }
+  end
+
+  before { StripeMock.start }
+
+  after { StripeMock.stop }
+
   describe 'POST #create' do
+    let(:charge) { Charge.last }
+    let(:order) { charge.order }
+
     context 'with a guest user' do
+      let(:user) { User.last }
+      let(:guest_user_expected_response) do
+        {
+          'charge' => {
+            'id' => charge.id,
+            'user_id' => user.id,
+            'order_id' => order.id,
+            'amount' => order.total,
+            'stripe_customer' => 'test_cus_3',
+            'currency' => 'usd',
+            'description' => email,
+            'created_at' => charge.created_at,
+            'updated_at' => charge.updated_at
+          }
+        }
+      end
+
       it 'creates a user, order and charge' do
         post :create, params: params
-        parsed_response = JSON.parse(response.body)
-        charge = Charge.last
-        user = User.last
-        expect(parsed_response['charge']['id']).to eq charge.id
-        expect(charge.order).to_not be nil
-        expect(charge.order.order_line_items.count).to be 1
-        expect(charge.order.order_line_items.first.product).to eq product
-        expect(charge.user).to eq user
-        expect(user.email).to eq params[:user][:email]
-        expect(user.name).to eq params[:user][:name]
-        expect(user.phone).to eq params[:user][:phone]
-        expect(user.address).to eq params[:user][:address]
-        expect(user.city).to eq params[:user][:city]
-        expect(user.state).to eq params[:user][:state]
-        expect(user.zip).to eq params[:user][:zip]
-        expect(user.stripe_token).to_not eq nil
+        expect(response.body).to eq guest_user_expected_response.to_json
       end
     end
 
     context 'with an existing user' do
-      let(:user) { FactoryBot.create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
+      let(:existing_user_expected_response) do
+        {
+          'charge' => {
+            'id' => charge.id,
+            'user_id' => user.id,
+            'order_id' => order.id,
+            'amount' => order.total,
+            'stripe_customer' => 'test_cus_3',
+            'currency' => 'usd',
+            'description' => email,
+            'created_at' => charge.created_at,
+            'updated_at' => charge.updated_at
+          }
+        }
+      end
 
-      before(:each) do
+      before do
         sign_in(user)
       end
 
       it 'creates order and charge and assigns them to the current user' do
         post :create, params: params
-        parsed_response = JSON.parse(response.body)
-        charge = Charge.last
-        user.reload
-        expect(parsed_response['charge']['id']).to eq charge.id
-        expect(charge.order).to_not be nil
-        expect(charge.order.order_line_items.count).to be 1
-        expect(charge.order.order_line_items.first.product).to eq product
-        expect(charge.user).to eq user
-        expect(user.name).to eq params[:user][:name]
-        expect(user.phone).to eq params[:user][:phone]
-        expect(user.address).to eq params[:user][:address]
-        expect(user.city).to eq params[:user][:city]
-        expect(user.state).to eq params[:user][:state]
-        expect(user.zip).to eq params[:user][:zip]
-        expect(user.stripe_token).to_not eq nil
+        expect(response.body).to eq existing_user_expected_response.to_json
       end
     end
   end
-
-
 end
