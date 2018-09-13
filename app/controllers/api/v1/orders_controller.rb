@@ -8,6 +8,7 @@ module Api
       end
 
       def show
+        # Not Safe
         @order = Order.find(params[:id])
       end
 
