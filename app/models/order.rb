@@ -6,6 +6,8 @@ class Order < ApplicationRecord
 
   before_save :compute_total
 
+  validates :user, presence: true
+
   def compute_total
     self.total = order_line_items.sum(&:total_price)
   end
