@@ -4,8 +4,8 @@ module Api
       skip_before_action :authenticate_user!
 
       def create
-        response = StripeChargesServices.new(charges_params, current_user).call
-        render json: { response: response }, status: :ok
+        charge = StripeChargesServices.new(charges_params, current_user).call
+        render json: { charge: charge }, status: :ok
       rescue Stripe::CardError => error
         render json: { error: error.message }, status: :unprocessable_entity
       end
@@ -18,6 +18,7 @@ module Api
           :stripe_token,
           order_line_items_attributes: [:product_id, :quantity],
           user: [
+            :email,
             :name,
             :phone,
             :address,

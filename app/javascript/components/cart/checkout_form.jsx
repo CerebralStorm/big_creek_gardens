@@ -78,7 +78,7 @@ class CheckoutForm extends React.Component {
     }).then((response) => {
       updateCart(this.props.currentUser, {})
       this.props.dispatch(loadCart(this.props.currentUser))
-      this.setState({orderId: response.data.response.order_id, redirectToConfirmation: true})
+      this.setState({orderId: response.data.charge.order_id, redirectToConfirmation: true})
     })
   }
 

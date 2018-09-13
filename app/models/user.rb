@@ -14,4 +14,9 @@ class User < ApplicationRecord
   after_initialize do |_user|
     self.roles ||= []
   end
+
+  # Override Devise Method
+  def password_required?
+    false
+  end
 end

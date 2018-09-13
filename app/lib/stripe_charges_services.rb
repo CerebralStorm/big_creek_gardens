@@ -8,7 +8,7 @@ class StripeChargesServices
     @stripe_token = params[:stripe_token]
     @user = user
     @user ||= User.where(email: stripe_email).first_or_initialize
-    @user.save unless @user.persisted?
+    @user.save! unless @user.persisted?
     save_user_info
     Stripe.api_key ||= ENV['STRIPE_SECRET_KEY']
   end
@@ -37,7 +37,7 @@ class StripeChargesServices
   end
 
   def create_order
-    Order.create(
+    Order.create!(
       user_id: user.id,
       order_line_items_attributes: params[:order_line_items_attributes]
     )
@@ -76,7 +76,7 @@ class StripeChargesServices
   end
 
   def create_charge_record(customer)
-    Charge.create(
+    Charge.create!(
       user_id: user.id,
       order_id: order.id,
       stripe_customer: customer.id,

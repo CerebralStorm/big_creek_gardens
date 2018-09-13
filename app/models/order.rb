@@ -11,6 +11,7 @@ class Order < ApplicationRecord
   end
 
   def total_in_cents
+    compute_total if total.nil?
     (total * 100).to_i
   end
 end
