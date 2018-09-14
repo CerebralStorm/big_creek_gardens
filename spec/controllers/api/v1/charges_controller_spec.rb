@@ -88,5 +88,20 @@ RSpec.describe Api::V1::ChargesController, type: :controller do
         expect(response.body).to eq existing_user_expected_response.to_json
       end
     end
+
+    context 'with invalid payment' do
+      let(:expected_response) do
+        { 'error' => 'The card was declined' }
+      end
+
+      before do
+        StripeMock.prepare_card_error(:card_declined)
+      end
+
+      it 'returns an error response' do
+        post :create, params: params
+        expect(JSON.parse(response.body)).to eq(expected_response)
+      end
+    end
   end
 end

@@ -11,17 +11,6 @@ module Api
         # Not Safe
         @order = Order.find(params[:id])
       end
-
-      private
-
-      def order_params
-        params.permit(
-          order_line_items: [
-            :product_id,
-            :quantity
-          ]
-        )
-      end
     end
   end
 end

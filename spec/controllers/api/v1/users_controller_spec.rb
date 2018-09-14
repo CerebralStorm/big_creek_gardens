@@ -90,5 +90,22 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       parsed_response = JSON.parse(response.body)
       expect(parsed_response).to eq JSON.parse(expected_response.to_json)
     end
+
+    context 'with invalid attributes' do
+      let(:expected_response) do
+        {
+          'error' => {
+            'email' => ["can't be blank"]
+          }
+        }
+      end
+
+      it 'should not update the user and return an error' do
+        params[:user][:email] = nil
+        put :update, params: { id: user.id }.merge(params)
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to eq JSON.parse(expected_response.to_json)
+      end
+    end
   end
 end

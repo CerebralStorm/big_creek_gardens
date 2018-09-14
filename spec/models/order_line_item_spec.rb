@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe OrderLineItem, type: :model do
-  context "associations" do
-    it { should belong_to(:product) }
-    it { should belong_to(:order) }
+  describe 'associations' do
+    it { is_expected.to belong_to(:product) }
+    it { is_expected.to belong_to(:order) }
   end
 
-  context "validations" do
-    it { should validate_presence_of(:product) }
-    it { should validate_presence_of(:order) }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:product) }
+    it { is_expected.to validate_presence_of(:order) }
   end
 
   describe '#total_price' do

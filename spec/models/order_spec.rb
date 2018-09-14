@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  context "associations" do
-    it { should belong_to(:user) }
-    it { should have_many(:charges) }
-    it { should have_many(:order_line_items) }
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:charges) }
+    it { is_expected.to have_many(:order_line_items) }
   end
 
-  context "validations" do
-    it { should validate_presence_of(:user) }
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:user) }
   end
 
   describe '#compute_total' do

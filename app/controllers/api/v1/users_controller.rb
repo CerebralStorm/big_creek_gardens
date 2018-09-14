@@ -7,7 +7,7 @@ module Api
         if @user.update(user_params)
           render json: { user: @user }, status: :ok
         else
-          render json: { error: error.message }, status: :unprocessable_entity
+          render json: { error: @user.errors }, status: :unprocessable_entity
         end
       end
 

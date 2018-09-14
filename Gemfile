@@ -49,8 +49,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
-  gem 'stripe-ruby-mock'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'stripe-ruby-mock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
