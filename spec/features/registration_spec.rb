@@ -4,11 +4,11 @@ RSpec.describe 'registration' do
   describe 'signin', type: :feature, js: true do
     before do
       FactoryBot.create(:user, email: 'user@example.com', password: 'password')
+      visit '/'
+      click_link 'Sign In'
     end
 
     it 'signs me in' do
-      visit '/'
-      click_link 'Sign In'
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: 'password'
       click_button 'Log in'
@@ -16,8 +16,6 @@ RSpec.describe 'registration' do
     end
 
     it 'requires the correct password' do
-      visit '/'
-      click_link 'Sign In'
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: 'invalid'
       click_button 'Log in'
@@ -25,8 +23,6 @@ RSpec.describe 'registration' do
     end
 
     it 'requires a valid email' do
-      visit '/'
-      click_link 'Sign In'
       fill_in 'Email', with: 'doesnt@exist.com'
       fill_in 'Password', with: 'password'
       click_button 'Log in'
@@ -35,9 +31,12 @@ RSpec.describe 'registration' do
   end
 
   describe 'sign up', type: :feature, js: true do
-    it 'requires an email' do
+    before do
       visit '/'
       click_link 'Sign Up'
+    end
+
+    it 'requires an email' do
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
@@ -45,8 +44,6 @@ RSpec.describe 'registration' do
     end
 
     it 'requires password to match' do
-      visit '/'
-      click_link 'Sign Up'
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'nomatch'
@@ -55,8 +52,6 @@ RSpec.describe 'registration' do
     end
 
     it 'signs me up' do
-      visit '/'
-      click_link 'Sign Up'
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'

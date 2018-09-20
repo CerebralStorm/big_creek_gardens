@@ -12,11 +12,11 @@ require 'capybara/rspec'
 require 'simplecov'
 
 Capybara.javascript_driver = :selenium_chrome
-
 Capybara.configure do |config|
   config.default_max_wait_time = 10 # seconds
   config.default_driver        = :selenium_chrome
 end
+Capybara.raise_server_errors = false
 
 SimpleCov.minimum_coverage 97
 SimpleCov.minimum_coverage_by_file 95
@@ -60,6 +60,8 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
