@@ -24,12 +24,18 @@ Style/EmptyMethod:
   Exclude:
     - 'app/controllers/**/*'
 Metrics/MethodLength:
-    Exclude:
-      - db/**/*
-      - spec/**/*
+  Exclude:
+    - db/**/*
+    - spec/**/*
 Metrics/AbcSize:
-    Exclude:
-      - db/**/*
-Metrics/ClassLength:
-  Max: 150
-
+  Exclude:
+    - db/**/*
+RSpec/ExampleLength:
+  Exclude:
+  - spec/features/**/*
+RSpec/DescribeClass:
+  Exclude:
+  - spec/features/**/*
+RSpec/MultipleExpectations:
+  Exclude:
+  - spec/features/**/*

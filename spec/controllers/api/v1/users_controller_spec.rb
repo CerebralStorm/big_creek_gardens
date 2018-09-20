@@ -100,7 +100,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         }
       end
 
-      it 'should not update the user and return an error' do
+      it 'does not update the user and return an error' do
         params[:user][:email] = nil
         put :update, params: { id: user.id }.merge(params)
         parsed_response = JSON.parse(response.body)

@@ -8,9 +8,17 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'stripe_mock'
-
+require 'capybara/rspec'
 require 'simplecov'
-SimpleCov.minimum_coverage 98
+
+Capybara.javascript_driver = :selenium_chrome
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 10 # seconds
+  config.default_driver        = :selenium_chrome
+end
+
+SimpleCov.minimum_coverage 97
 SimpleCov.minimum_coverage_by_file 95
 SimpleCov.start do
   add_filter 'config/routes.rb'

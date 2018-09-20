@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :charges
 
   validates :email, uniqueness: true, presence: true
+  validates_confirmation_of :password
 
   serialize :roles
   after_initialize do |_user|
