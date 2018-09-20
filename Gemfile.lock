@@ -300,6 +300,8 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sentry-raven (2.7.4)
+      faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     simplecov (0.16.1)
@@ -362,7 +364,7 @@ DEPENDENCIES
   bootstrap (~> 4.1.3)
   brakeman
   byebug
-  cancancan
+  cancancan (~> 2.2.0)
   capybara (>= 2.15)
   carrierwave (~> 1.0)
   chromedriver-helper
@@ -371,7 +373,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
-  fog-aws
+  fog-aws (~> 2.0.1)
   font-awesome-rails (~> 4.7.0.4)
   jbuilder (~> 2.5)
   jquery-rails (~> 4.2.1)
@@ -386,11 +388,12 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0)
   selenium-webdriver
+  sentry-raven (~> 2.7.4)
   shoulda-matchers (~> 3.1)
   simplecov (~> 0.16.1)
   spring
   spring-watcher-listen (~> 2.0.0)
-  stripe
+  stripe (~> 3.25.0)
   stripe-ruby-mock
   turbolinks (~> 5)
   tzinfo-data

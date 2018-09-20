@@ -19,7 +19,7 @@ end
 Capybara.raise_server_errors = false
 
 SimpleCov.minimum_coverage 97
-SimpleCov.minimum_coverage_by_file 95
+SimpleCov.minimum_coverage_by_file 90
 SimpleCov.start do
   add_filter 'config/routes.rb'
   add_filter 'config/initializers/'
