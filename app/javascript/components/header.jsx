@@ -64,7 +64,7 @@ class Header extends React.Component {
                   }
                   {this.props.currentUser &&
                     <li className="nav-item">
-                      <form id='signOutForm' className="nav-link" method="post" action="/users/sign_out">
+                      <form id="signOutForm" className="nav-link" method="post" action="/users/sign_out">
                         <input type="hidden" name="_method" value="delete" />
                         <input type="hidden" name="authenticity_token" value={ENV.csrf_token} />
                         <input type="submit" value="Log Out" className="as-link" />
