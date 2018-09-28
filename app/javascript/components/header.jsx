@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/logo-alpha.png'
+import logo from '../assets/images/web2.png'
 import { loadCart } from '../actions/cart'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'

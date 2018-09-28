@@ -354,7 +354,7 @@ a:hover {
 
 #partner {
   height: 450px;
-  background: image-url('partner_bg.png') 50% 50% no-repeat;
+  background: image-url('roots.jpg') 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -539,7 +539,10 @@ a:hover {
 
 .about img {
 	margin-bottom:30px;
-	border-radius:6px;
+}
+
+img.round {
+  border-radius:6px;
 }
 
 .our-team {
