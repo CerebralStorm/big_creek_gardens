@@ -16,14 +16,15 @@ class CheckoutForm extends React.Component {
     this.displayTotalPrice = this.displayTotalPrice.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
+    let currentUser = this.props.currentUser || {}
     this.state = {
-      name: this.props.currentUser.name,
-      email: this.props.currentUser.email,
-      phone: this.props.currentUser.phone,
-      address: this.props.currentUser.address,
-      city: this.props.currentUser.city,
-      state: this.props.currentUser.state,
-      zip: this.props.currentUser.zip,
+      name: currentUser.name,
+      email: currentUser.email,
+      phone: currentUser.phone,
+      address: currentUser.address,
+      city: currentUser.city,
+      state: currentUser.state,
+      zip: currentUser.zip,
       redirectToConfirmation: false,
       orderId: ''
     }
