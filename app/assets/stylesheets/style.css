@@ -354,7 +354,7 @@ a:hover {
 
 #partner {
   height: 450px;
-  background: image-url('roots.jpg') 50% 50% no-repeat;
+  background: image-url('roots.jpg') 50% 10% no-repeat;
   background-size: cover;
 }
 
@@ -1291,3 +1291,24 @@ input.as-link:hover {
     color: #468847;
     text-align: left;
  }
+
+.link {
+  cursor:pointer;
+}
+
+.hero-text {
+  text-shadow: 2px 2px black;
+}
+
+.blog-img {
+  width: 350px;
+  height: 200px;
+}
+
+.flash-message {
+  position: fixed;
+  top: 80;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}

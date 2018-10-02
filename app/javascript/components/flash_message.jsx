@@ -13,12 +13,11 @@ class FlashMessage extends React.Component {
   }
 
   render() {
-    window.scrollTo(0,0);
     if(!this.props.flash.message) {
       return null;
     }
     return (
-      <div onClick={this.handleClose} className="container">
+      <div onClick={this.handleClose} className="container flash-message">
         <div className={`alert alert-${this.props.flash.messageType}`} role="alert">
           {this.props.flash.message}
           <button type="button" className="close" data-dismiss="alert" aria-label="Close">

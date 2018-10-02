@@ -1,4 +1,6 @@
 import React from 'react'
+import Disclaimer from './disclaimer'
+import { Link } from 'react-router-dom'
 
 class Footer extends React.Component {
   render() {
@@ -89,16 +91,18 @@ class Footer extends React.Component {
             <div className="row">
               <div className="col-md-6 col-sm-6">
                 <p className="copyright-text">
-                  ©  2016 Engage. All right reserved. Designed with by <a href="#">GrayGrids</a>
+                  ©  2018 Area 51 Hemp. All right reserved.
                 </p>
               </div>
               <div className="col-md-6  col-sm-6">
                 <ul className="nav nav-inline pull-xs-right">
                   <li className="nav-item">
-                    <a className="nav-link active" href="#">Home</a>
+                    <Link to={'/'} className="nav-link">
+                      Home
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Sitemap</a>
+                    <Disclaimer className="nav-link" />
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#">Privacy Policy</a>

@@ -31,7 +31,7 @@ class Header extends React.Component {
         <nav className="navbar fixed-top navbar-expand-lg">
           <div className="container">
             <Link to={'/'} className="navbar-brand">
-              <img src={logo} width="100" />
+              <img src={logo} width="200" />
             </Link>
             <button className="navbar-toggler hidden-md-up pull-xs-right" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
               ☰

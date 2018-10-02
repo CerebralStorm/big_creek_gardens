@@ -1,5 +1,7 @@
 {
-  "application.js": "/packs/application-b97fe39f1abc94d7820a.js",
-  "application.js.map": "/packs/application-b97fe39f1abc94d7820a.js.map",
-  "assets/images/web2.png": "/packs/assets/images/web2-8a54a68ccd263d5f02209544ff3fde24.png"
+  "application.js": "/packs/application-e5dba75f12c86380b00e.js",
+  "application.js.map": "/packs/application-e5dba75f12c86380b00e.js.map",
+  "assets/images/web2.png": "/packs/assets/images/web2-8a54a68ccd263d5f02209544ff3fde24.png",
+  "assets/images/Web3.png": "/packs/assets/images/Web3-e4eca547617f11a4242eee3e2a18afcd.png",
+  "assets/images/Web3.svg": "/packs/assets/images/Web3-cf65b03b09bdbd89dca246230034a40e.svg"
 }

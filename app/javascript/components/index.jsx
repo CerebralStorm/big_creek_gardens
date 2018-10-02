@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/images/web2.png'
+import logo from '../assets/images/Web3.svg'
+import { loadProducts } from '../actions/product'
+import { connect } from 'react-redux'
+import ProductTile from './products/product_tile'
 
 class Index extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(loadProducts())
+  }
+
   render() {
     return (
       <div>
@@ -13,9 +20,9 @@ class Index extends React.Component {
                 <img src="bg1.jpg" className="d-block w-100" alt="First slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid" /></h2>
-                    <p className="animation animated-item-2">Hemp products that are out of this world!</p>
-                    <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
+                    <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
                 </div>
               </div>
@@ -23,9 +30,9 @@ class Index extends React.Component {
                 <img src="bg2.jpg" className="d-block w-100" alt="Second slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid" /></h2>
-                    <p className="animation animated-item-2">Hemp products that are out of this world!</p>
-                    <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
+                    <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
                 </div>
               </div>
@@ -33,9 +40,9 @@ class Index extends React.Component {
                 <img src="bg3.jpg" className="d-block w-100" alt="Third slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid" /></h2>
-                    <p className="animation animated-item-2">Hemp products that are out of this world!</p>
-                    <Link to="/shop" className="btn-slide animation animated-item-3">Shop Now!</Link>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
+                    <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
                 </div>
               </div>
@@ -56,7 +63,7 @@ class Index extends React.Component {
             <div className="row">
               <div className="col">
                 <h2>What is CBD?</h2>
-                <img src="cbd.jpg" className="img-fluid round" />
+                <img src="cbd.jpg" className="img-fluid rounded" />
                 <p>
                   Oil extracted from Hemp
                 </p>
@@ -74,19 +81,17 @@ class Index extends React.Component {
 
         <div className="about">
           <div className="container">
+            <h2 className='text-center'>Featured Products</h2>
             <div className="row">
-              <div className="col">
-                <h2>Benefits and uses of Hemp</h2>
-                <p>
-                  Hemp or industrial hemp is a variety of the Cannabis sativa plant species is grown specifically for its industrial uses. Hemp is one of the fastest growing plants and can be used in many commercial items such as, paper, textile, clothing, biofuel, food, biodegradable plastics and more. All of the hemp products we carry are 100% THC free.
-                </p>
-              </div>
-              <div className="col">
-                <h2>What is Hemp?</h2>
-                <img src="6.jpg" className="img-fluid round" />
-                <p>
-                  All of the hemp products we carry are 100% THC free.
-                </p>
+              {this.props.products.slice(0, 4).map(product => (
+                <ProductTile key={product.id} product={product} />
+              ))}
+            </div>
+            <div className="row">
+              <div className="col-4 mx-auto">
+                <div className="text-center pt-3">
+                  <Link to="/shop" className="btn btn-success btn-lg center">Shop For More!</Link>
+                </div>
               </div>
             </div>
           </div>
@@ -95,30 +100,27 @@ class Index extends React.Component {
         <div className="latest">
           <div className="container">
             <div className="text-center">
-              <h2>Lates News</h2>
+              <h2>Blog Posts</h2>
             </div>
             <div className="row">
               <div className="col-md-4">
-                <img src="4.jpg" className="img-fluid" />
-                <h3>Template built with Twitter Bootstrap</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero,
-                  pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
+                <img src="hemp3.jpg" className="img-fluid blog-img" />
+                <h3>How Hemp differs from Marijuana</h3>
+                <p>There are alot of misconceptions about the difference between hemp and marijuana. Get all the details here
                 </p>
               </div>
 
               <div className="col-md-4">
-                <img src="4.jpg" className="img-fluid" />
-                <h3>Template built with Twitter Bootstrap</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero,
-                  pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
+                <img src="hemp6.jpg" className="img-fluid blog-img" />
+                <h3>Get Healthy With Hemp</h3>
+                <p>The common uses that you aren't aware of.
                 </p>
               </div>
 
               <div className="col-md-4">
-                <img src="4.jpg" className="img-fluid" />
-                <h3>Template built with Twitter Bootstrap</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque libero,
-                  pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
+                <img src="hemp4.jpg" className="img-fluid blog-img" />
+                <h3>Isn't This Illegal?</h3>
+                <p>Misconceptions about hemp.
                 </p>
               </div>
             </div>
@@ -128,18 +130,16 @@ class Index extends React.Component {
         <section id="partner">
           <div className="container">
             <div className="center wow fadeInDown">
-              <h2>Our Partners</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br /> et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <h2>Social Media</h2>
+              <p className='font-weight-bold'>Come like and follow our pages</p>
             </div>
 
             <div className="partners">
-              <ul>
-                <li> <a href="#"><img src="partner1.png" className="img-fluid" /></a></li>
-                <li> <a href="#"><img src="partner2.png" className="img-fluid" /></a></li>
-                <li> <a href="#"><img src="partner3.png" className="img-fluid" /></a></li>
-                <li> <a href="#"><img src="partner4.png" className="img-fluid" /></a></li>
-                <li> <a href="#"><img src="partner5.png" className="img-fluid" /></a></li>
-              </ul>
+              <div className='row'>
+                <a href="#" className='col'><img src="facebook.png" className="rounded" width='200' height='100' /></a>
+                <a href="#" className='col'><img src="instagram.png" className="rounded" width='200' height='100' /></a>
+                <a href="#" className='col'><img src="twitter.jpeg" className="rounded" width='200' height='100'/></a>
+              </div>
             </div>
           </div>
         </section>
@@ -148,4 +148,12 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    products: state.products
+  }
+}
+
+export default connect(mapStateToProps)(Index)
+export { Index };

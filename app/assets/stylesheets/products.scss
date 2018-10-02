@@ -1,5 +1,20 @@
 .product-tile {
-  height: 360px;
+  height: 370px;
+  p {
+    padding: 2px;
+    margin: 0px;
+  }
+  img {
+    padding: 5px;
+  }
+  padding: 5px;
+  background-color: #FFFFFF;
+  text-align: center;
+  .product-tile-description {
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .product-title {
@@ -13,11 +28,11 @@
 }
 
 .product-price {
-  height: 20px;
+  height: 30px;
 }
 
 .product-cart-add {
-  height: 20px;
+  height: 40px;
 }
 
 .checkout-container {
