@@ -97,7 +97,7 @@ class Index extends React.Component {
           </div>
         </div>
 
-        <div className="latest">
+{/*        <div className="latest">
           <div className="container">
             <div className="text-center">
               <h2>Blog Posts</h2>
@@ -125,7 +125,7 @@ class Index extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         <section id="partner">
           <div className="container">

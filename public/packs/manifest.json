@@ -1,7 +1,6 @@
 {
-  "application.js": "/packs/application-612cfcccc4e3ce79f40d.js",
-  "application.js.map": "/packs/application-612cfcccc4e3ce79f40d.js.map",
-  "assets/images/web2.png": "/packs/assets/images/web2-8a54a68ccd263d5f02209544ff3fde24.png",
-  "assets/images/Web3.png": "/packs/assets/images/Web3-e4eca547617f11a4242eee3e2a18afcd.png",
-  "assets/images/Web3.svg": "/packs/assets/images/Web3-cf65b03b09bdbd89dca246230034a40e.svg"
+  "application.js": "/packs/application-944ac8083df53e8122c8.js",
+  "application.js.map": "/packs/application-944ac8083df53e8122c8.js.map",
+  "assets/images/Web3.svg": "/packs/assets/images/Web3-cf65b03b09bdbd89dca246230034a40e.svg",
+  "assets/images/web2.png": "/packs/assets/images/web2-8a54a68ccd263d5f02209544ff3fde24.png"
 }

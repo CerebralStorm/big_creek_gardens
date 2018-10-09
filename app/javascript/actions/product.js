@@ -14,4 +14,16 @@ var loadProducts = function (params = {}) {
   }
 }
 
-export { loadProducts };
+var loadProduct = function (productId, params = {}) {
+  return function (dispatch) {
+    return ProductApi.loadProduct(productId, params)
+      .then(response => {
+        dispatch({ type: constants.LOAD_PRODUCT, product: response.data })
+      })
+      .catch(error => {
+        logAndDispatchError(dispatch, error, 'An error occurred while attempting to load the product.')
+      })
+  }
+}
+
+export { loadProducts, loadProduct };

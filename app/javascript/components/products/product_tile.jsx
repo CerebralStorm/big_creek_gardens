@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateCart, loadCart } from '../../actions/cart'
 import { showFlashMessage } from '../../actions/flash'
+import { Link } from 'react-router-dom'
 
 class ProductTile extends React.Component {
   constructor(props) {
@@ -28,9 +29,13 @@ class ProductTile extends React.Component {
     return (
       <div className='col-xs-12 col-sm-12 col-md-4 col-lg-3 mx-auto'>
         <div className="product-tile rounded">
-          <img src={this.props.product.image_url}  className='rounded' height="160" alt="Product Image" />
+          <Link to={`/products/${this.props.product.id}`}>
+            <img src={this.props.product.image_url} className='rounded' height="160" alt="Product Image" />
+          </Link>
           <div className="product-details">
-            <h6 className="product-title">{this.props.product.name}</h6>
+            <Link to={`/products/${this.props.product.id}`}>
+              <h6 className="product-title">{this.props.product.name}</h6>
+            </Link>
             <p className="product-description">{this.props.product.description}</p>
             <p className="product-price"><strong>${this.props.product.price}</strong></p>
             <p className="product-cart-add">

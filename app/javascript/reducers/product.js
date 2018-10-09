@@ -9,4 +9,13 @@ var productsReducer = function (state = [], action) {
   }
 }
 
-export { productsReducer }
+var productReducer = function (state = {}, action) {
+  switch (action.type) {
+    case constants.LOAD_PRODUCT:
+      return action.product;
+    default:
+      return state;
+  }
+}
+
+export { productsReducer, productReducer }

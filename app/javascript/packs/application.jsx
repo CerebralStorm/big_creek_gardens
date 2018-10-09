@@ -7,6 +7,7 @@ import store from '../store'
 import App from '../components/app'
 import Index from '../components/index'
 import Shop from '../components/shop'
+import Product from '../components/products/product'
 import Cart from '../components/cart'
 import Gallery from '../components/gallery'
 import Contact from '../components/contact'
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <Route exact path="/account" component={Account}/>
             <Route exact path="/orders/:orderId" component={Order}/>
             <Route exact path="/confirmation/:orderId" component={CheckoutConfirmation}/>
+            <Route exact path="/products/:productId" component={Product}/>
             <Route exact path="/unauthorized" component={Unauthorized}/>
             <Route component={NotFound} />
           </Switch>

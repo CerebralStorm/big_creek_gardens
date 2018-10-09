@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 
-import { productsReducer } from './reducers/product'
+import { productsReducer, productReducer } from './reducers/product'
 import { ordersReducer, orderReducer } from './reducers/order'
 import flashReducer from './reducers/flash'
 import { currentUserReducer } from './reducers/user'
@@ -11,6 +11,7 @@ const middleware = [thunk];
 
 var reducer = combineReducers({
   products: productsReducer,
+  product: productReducer,
   orders: ordersReducer,
   order: orderReducer,
   flash: flashReducer,
