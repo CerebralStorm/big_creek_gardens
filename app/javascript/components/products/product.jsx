@@ -31,7 +31,7 @@ class Product extends React.Component {
   }
 
   render() {
-    if(!this.props.product.id) {
+    if(!this.props.product.id || (this.props.product.id.toString() !== this.props.match.params.productId)) {
       return <Loading />;
     } else {
       return (
