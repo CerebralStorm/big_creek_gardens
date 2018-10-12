@@ -36,18 +36,18 @@ class Product extends React.Component {
     } else {
       return (
         <div className="container feature">
-          <div className='row'>
+          <div className="row">
             <div className="col-6">
-              <img src={this.props.product.image_url}  className='rounded img-fluid' alt="Product Image" />
+              <img src={this.props.product.image_url} className="rounded img-fluid" alt="Product Image" />
             </div>
-            <div className='col-4'>
+            <div className="col-4">
               <div className="product-details">
                 <h6 className="product-title">{this.props.product.name}</h6>
                 <p className="product-description">{this.props.product.description}</p>
                 <p className="product-price"><strong>${this.props.product.price}</strong></p>
               </div>
             </div>
-            <div className='col-2'>
+            <div className="col-2">
               <p className="product-cart-add">
                 <span className="btn btn-success link" onClick={this.addToCart}><FontAwesomeIcon icon="plus" className="mr-1" />Add to Cart</span>
               </p>

@@ -249,12 +249,7 @@ exports[`render a Footer 1`] = `
           <p
             className="copyright-text"
           >
-            ©  2016 Engage. All right reserved. Designed with by 
-            <a
-              href="#"
-            >
-              GrayGrids
-            </a>
+            ©  2018 Area 51 Hemp. All right reserved.
           </p>
         </div>
         <div
@@ -266,22 +261,20 @@ exports[`render a Footer 1`] = `
             <li
               className="nav-item"
             >
-              <a
-                className="nav-link active"
-                href="#"
+              <Link
+                className="nav-link"
+                replace={false}
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li
               className="nav-item"
             >
-              <a
+              <Disclaimer
                 className="nav-link"
-                href="#"
-              >
-                Sitemap
-              </a>
+              />
             </li>
             <li
               className="nav-item"

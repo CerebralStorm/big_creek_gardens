@@ -20,7 +20,7 @@ class Index extends React.Component {
                 <img src="bg1.jpg" className="d-block w-100" alt="First slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo" /></h2>
                     <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
                     <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
@@ -30,7 +30,7 @@ class Index extends React.Component {
                 <img src="bg2.jpg" className="d-block w-100" alt="Second slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo" /></h2>
                     <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
                     <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
@@ -40,7 +40,7 @@ class Index extends React.Component {
                 <img src="bg3.jpg" className="d-block w-100" alt="Third slide" />
                 <div className="carousel-caption d-none d-md-block">
                   <div className="carousel-content">
-                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo"  /></h2>
+                    <h2 className="animation animated-item-1"><img src={logo} className="img-fluid main-logo" /></h2>
                     <p className="animation animated-item-2 font-weight-bold hero-text">Hemp products that are out of this world!</p>
                     <Link to="/shop" className="btn btn-success btn-lg">Shop Now!</Link>
                   </div>
@@ -81,7 +81,7 @@ class Index extends React.Component {
 
         <div className="about">
           <div className="container">
-            <h2 className='text-center'>Featured Products</h2>
+            <h2 className="text-center">Featured Products</h2>
             <div className="row">
               {this.props.products.slice(0, 4).map(product => (
                 <ProductTile key={product.id} product={product} />
@@ -131,14 +131,14 @@ class Index extends React.Component {
           <div className="container">
             <div className="center wow fadeInDown">
               <h2>Social Media</h2>
-              <p className='font-weight-bold'>Come like and follow our pages</p>
+              <p className="font-weight-bold">Come like and follow our pages</p>
             </div>
 
             <div className="partners">
-              <div className='row'>
-                <a href="https://www.facebook.com/Area51Hemp" className='col'><img src="facebook.png" className="rounded" width='200' height='100' /></a>
-                <a href="https://www.instagram.com/area51hemp" className='col'><img src="instagram.png" className="rounded" width='200' height='100' /></a>
-                <a href="https://twitter.com/Area51Hemp" className='col'><img src="twitter.jpeg" className="rounded" width='200' height='100'/></a>
+              <div className="row">
+                <a href="https://www.facebook.com/Area51Hemp" className="col"><img src="facebook.png" className="rounded" width="200" height="100" /></a>
+                <a href="https://www.instagram.com/area51hemp" className="col"><img src="instagram.png" className="rounded" width="200" height="100" /></a>
+                <a href="https://twitter.com/Area51Hemp" className="col"><img src="twitter.jpeg" className="rounded" width="200" height="100"/></a>
               </div>
             </div>
           </div>

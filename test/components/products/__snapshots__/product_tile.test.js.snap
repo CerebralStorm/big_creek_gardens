@@ -2,59 +2,73 @@
 
 exports[`render a ProductTile 1`] = `
 <div
-  className="product-tile col-xs-12 col-sm-12 col-md-4 col-lg-3"
+  className="col-xs-12 col-sm-12 col-md-4 col-lg-3 mx-auto"
 >
-  <img
-    alt="Product Image"
-    height="160"
-  />
   <div
-    className="product-details"
+    className="product-tile rounded"
   >
-    <h6
-      className="product-title p-2"
+    <Link
+      replace={false}
+      to="/products/1"
     >
-      test product
-    </h6>
-    <p
-      className="product-description"
-    />
-    <p
-      className="product-price"
+      <img
+        alt="Product Image"
+        className="rounded"
+        height="160"
+      />
+    </Link>
+    <div
+      className="product-details"
     >
-      <strong>
-        $
-      </strong>
-    </p>
-    <p
-      className="product-cart-add"
-    >
-      <a
-        className="btn btn-success"
-        href="#"
-        onClick={[Function]}
+      <Link
+        replace={false}
+        to="/products/1"
       >
-        <FontAwesomeIcon
-          border={false}
-          className="mr-1"
-          fixedWidth={false}
-          flip={null}
-          icon="plus"
-          inverse={false}
-          listItem={false}
-          mask={null}
-          pull={null}
-          pulse={false}
-          rotation={null}
-          size={null}
-          spin={false}
-          symbol={false}
-          title=""
-          transform={null}
-        />
-        Add to Cart
-      </a>
-    </p>
+        <h6
+          className="product-title"
+        >
+          test product
+        </h6>
+      </Link>
+      <p
+        className="product-description"
+      />
+      <p
+        className="product-price"
+      >
+        <strong>
+          $
+        </strong>
+      </p>
+      <p
+        className="product-cart-add"
+      >
+        <span
+          className="btn btn-success link"
+          onClick={[Function]}
+        >
+          <FontAwesomeIcon
+            border={false}
+            className="mr-1"
+            fixedWidth={false}
+            flip={null}
+            icon="plus"
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size={null}
+            spin={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          Add to Cart
+        </span>
+      </p>
+    </div>
   </div>
 </div>
 `;

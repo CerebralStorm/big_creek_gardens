@@ -2,7 +2,7 @@
 
 exports[`render a FlashMessage 1`] = `
 <div
-  className="container"
+  className="container flash-message"
   onClick={[Function]}
 >
   <div

@@ -15,7 +15,7 @@ exports[`render a Header 1`] = `
       >
         <img
           src={null}
-          width="100"
+          width="200"
         />
       </Link>
       <button

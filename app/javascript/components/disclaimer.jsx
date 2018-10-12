@@ -10,13 +10,13 @@ class Disclaimer extends React.Component {
     }
   }
 
-  toggleModal(event) {
+  toggleModal() {
     this.setState({show: !this.state.show})
   }
 
   render() {
     return (
-      <span className='link nav-link'>
+      <span className="link nav-link">
         <span onClick={this.toggleModal}>Disclaimer</span>
         <Modal visible={this.state.show} onClickBackdrop={this.toggleModal}>
            <div className="modal-header">

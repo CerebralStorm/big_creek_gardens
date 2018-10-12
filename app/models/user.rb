@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def password_required?
     false
   end
+
+  def city_state_zip
+    [city, state, zip].join(', ')
+  end
 end

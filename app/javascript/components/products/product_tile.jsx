@@ -27,10 +27,10 @@ class ProductTile extends React.Component {
 
   render() {
     return (
-      <div className='col-xs-12 col-sm-12 col-md-4 col-lg-3 mx-auto'>
+      <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3 mx-auto">
         <div className="product-tile rounded">
           <Link to={`/products/${this.props.product.id}`}>
-            <img src={this.props.product.image_url} className='rounded' height="160" alt="Product Image" />
+            <img src={this.props.product.image_url} className="rounded" height="160" alt="Product Image" />
           </Link>
           <div className="product-details">
             <Link to={`/products/${this.props.product.id}`}>
