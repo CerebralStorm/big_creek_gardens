@@ -136,9 +136,9 @@ class Index extends React.Component {
 
             <div className="partners">
               <div className='row'>
-                <a href="#" className='col'><img src="facebook.png" className="rounded" width='200' height='100' /></a>
-                <a href="#" className='col'><img src="instagram.png" className="rounded" width='200' height='100' /></a>
-                <a href="#" className='col'><img src="twitter.jpeg" className="rounded" width='200' height='100'/></a>
+                <a href="https://www.facebook.com/Area51Hemp" className='col'><img src="facebook.png" className="rounded" width='200' height='100' /></a>
+                <a href="https://www.instagram.com/area51hemp" className='col'><img src="instagram.png" className="rounded" width='200' height='100' /></a>
+                <a href="https://twitter.com/Area51Hemp" className='col'><img src="twitter.jpeg" className="rounded" width='200' height='100'/></a>
               </div>
             </div>
           </div>
