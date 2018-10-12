@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  default from: 'noreply@area51hemp.com'
   layout 'user_mailer'
 
   def order_confirmation(order_id)

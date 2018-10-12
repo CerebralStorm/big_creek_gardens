@@ -98,11 +98,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV['SPARKPOST_SMTP_HOST'],
-    port: ENV['SPARKPOST_SMTP_PORT'],
     user_name: ENV['SPARKPOST_SMTP_USERNAME'],
     password: ENV['SPARKPOST_SMTP_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
+    address: ENV['SPARKPOST_SMTP_HOST'],
+    port: ENV['SPARKPOST_SMTP_PORT'],
+    enable_starttls_auto: true,
+    format: :html,
+    from: 'noreply@area51hemp.com'
   }
 end
