@@ -72,6 +72,7 @@ class StripeChargesServices
       currency: DEFAULT_CURRENCY,
       metadata: { 'order_id' => order.id }
     )
+    UserMailer.order_confirmation(order.id).deliver_now
     create_charge_record(customer)
   end
 
